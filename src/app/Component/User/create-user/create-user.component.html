@@ -1,0 +1,135 @@
+<div class="col-md-10 offset-md-1">
+  <div class="card">
+    <div class="card-header">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Create User</a>
+          <div class="d-flex">
+            <button
+              class="btn btn-outline-dark"
+              (click)="onLogin()"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <form class="g-3" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div class="row justify-content-md-center align-items-start">
+            <div class="col">
+              <input
+                type="hidden"
+                formControlName="userId"
+                class="form-control"
+              />
+              <label for="username" class="form-label">User Name</label>
+              <input
+                type="text"
+                formControlName="username"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': userSubmitted && f['username'].errors
+                }"
+              />
+              <div
+                *ngIf="userSubmitted && f['username'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['username'].errors['required']">
+                  First Name is required
+                </div>
+                <div *ngIf="f['username'].errors['minlength']">
+                  first Name must be at least 6 characters
+                </div>
+                <div *ngIf="f['username'].errors['maxlength']">
+                  first Name must not exceed 20 characters
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <label class="form-label">Password</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="password"
+                [ngClass]="{
+                  'is-invalid': userSubmitted && f['password'].errors
+                }"
+              />
+              <div
+                *ngIf="userSubmitted && f['password'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['password'].errors['required']">
+                  last Name is required
+                </div>
+                <div *ngIf="f['password'].errors['minlength']">
+                  last Name must be at least 6 characters
+                </div>
+                <div *ngIf="f['password'].errors['maxlength']">
+                  last Name must not exceed 20 characters
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-3">
+            <div class="col">
+              <label class="form-label">Email</label>
+              <input
+                class="form-control"
+                type="email"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': userSubmitted && f['email'].errors }"
+              />
+              <div
+                *ngIf="userSubmitted && f['email'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['email'].errors['required']">
+                  Email is required
+                </div>
+                <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+              </div>
+            </div>
+            <div class="col">
+              <label class="form-label">Full Name</label>
+              <input
+                class="form-control"
+                type="tel"
+                formControlName="fullName"
+                [ngClass]="{
+                  'is-invalid': userSubmitted && f['fullName'].errors
+                }"
+              />
+              <div
+                *ngIf="userSubmitted && f['fullName'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['fullName'].errors['required']">
+                  Mobile Number is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="align-items-center mt-3 text-center">
+            <input
+              class="btn btn-outline-primary m-lg-3"
+              type="submit"
+              value="Submit"
+            />
+            <input
+              type="button"
+              (click)="onReset()"
+              class="btn btn-outline-danger m-lg-3"
+              value="Reset"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
