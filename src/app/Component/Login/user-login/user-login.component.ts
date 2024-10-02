@@ -51,7 +51,7 @@ export class UserLoginComponent implements OnInit {
     this.loginModel.password = this.loginForm.value.password;
     this.loginUserService.loginUser(this.loginModel).subscribe((res: { status: any; message: string; }) => {
       if (res.status) {
-        this.router.navigate(['/user-list']);
+        this.router.navigate(['/blog-category']);
       }
       else {
         this.errorMessage = res.message;
