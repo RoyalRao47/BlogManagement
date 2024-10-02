@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1HwK+Apw07sLNja0QrD8W+f3rIFT7ncsDRgDiOk3aa0=",
+  "Source": "BlogMgmtServer",
+  "BasePath": "_content/BlogMgmtServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
