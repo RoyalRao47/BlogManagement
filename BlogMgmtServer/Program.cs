@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using BlogMgmtServer.Database;
 using BlogMgmtServer.Service;
 using BlogMgmtServer.Model;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +16,10 @@ builder.Services.AddHttpClient();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<ITagService, TagService>();
+builder.Services.AddTransient<IBlogService, BlogService>();
 
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

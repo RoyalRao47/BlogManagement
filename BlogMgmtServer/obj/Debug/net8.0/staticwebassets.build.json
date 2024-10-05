@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "1HwK+Apw07sLNja0QrD8W+f3rIFT7ncsDRgDiOk3aa0=",
+  "Hash": "745y9oR2ZpL2dVjkzZsS2GDgmoMsEx2PgYybq32C6AU=",
   "Source": "BlogMgmtServer",
   "BasePath": "_content/BlogMgmtServer",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "BlogMgmtServer\\wwwroot",
+      "Source": "BlogMgmtServer",
+      "ContentRoot": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\",
+      "BasePath": "_content/BlogMgmtServer",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1705466307452.JPEG",
+      "SourceId": "BlogMgmtServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\",
+      "BasePath": "_content/BlogMgmtServer",
+      "RelativePath": "Content/Blog/1705466307452.JPEG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\Blog\\1705466307452.JPEG"
+    }
+  ]
 }

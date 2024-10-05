@@ -38,7 +38,7 @@ namespace BlogMgmtServer.Controllers
             if (user != null)
             {
                 var tokenString = GenerateJWTToken(user);
-                return Ok(new { status = true , Token = tokenString });
+                return Ok(new { status = true , userId = user.UserId, Token = tokenString });
             }
 
             return Ok(new { status = false, message = "Chala Ja B..K" });

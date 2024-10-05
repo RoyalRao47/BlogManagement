@@ -137,3 +137,6 @@ D:\UpSkilingTask\Angular\BlogManagement\BlogMgmTServer\obj\Debug\net8.0\refint\B
 D:\UpSkilingTask\Angular\BlogManagement\BlogMgmTServer\obj\Debug\net8.0\BlogMgmtServer.pdb
 D:\UpSkilingTask\Angular\BlogManagement\BlogMgmTServer\obj\Debug\net8.0\BlogMgmtServer.genruntimeconfig.cache
 D:\UpSkilingTask\Angular\BlogManagement\BlogMgmTServer\obj\Debug\net8.0\ref\BlogMgmtServer.dll
+D:\UpSkilingTask\Angular\BlogManagement\BlogMgmTServer\obj\Debug\net8.0\BlogMgmtServer.sourcelink.json
+d:\UpSkilingTask\Angular\BlogManagement\BlogMgmtServer\bin\Debug\net8.0\Newtonsoft.Json.dll
+d:\UpSkilingTask\Angular\BlogManagement\BlogMgmtServer\bin\Debug\net8.0\BlogMgmtServer.staticwebassets.runtime.json
