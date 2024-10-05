@@ -25,10 +25,9 @@
                   <!-- Email input -->
                   <div class="form-outline mb-4">
                     <label class="form-label" for="email">UserName/Email</label>
-                    <input class="form-control" type="email" formControlName="email" [ngClass]="{ 'is-invalid': userSubmitted && f['email'].errors }" />
+                    <input class="form-control" type="text" formControlName="email" [ngClass]="{ 'is-invalid': userSubmitted && f['email'].errors }" />
                     <div *ngIf="userSubmitted && f['email'].errors" class="invalid-feedback">
-                      <div *ngIf="f['email'].errors['required']">Email is required</div>
-                      <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                      <div *ngIf="f['email'].errors['required']">UserName is required</div>
                     </div>
                   </div>
   
@@ -55,7 +54,7 @@
                   <div class="text-center">
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4">
-                      Sign Up
+                      Submit
                     </button>
                   </div>
                   <!-- Register buttons -->

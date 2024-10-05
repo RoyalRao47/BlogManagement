@@ -29,7 +29,7 @@ export class BlogTagService {
   GetTagById(TagId: bigint): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetTagById?TagId=${TagId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": GetIncomeSourceById  " + JSON.stringify(response));
+        console.log(new Date() + ": GetTagById  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Get'))
     );
@@ -63,6 +63,6 @@ export class BlogTagService {
       console.error(error); // log to console instead
       this.log(`${operation} failed: ${error.message}`);
       return of(result as T);
-    };
+    };                                                                                  
   }
 }
