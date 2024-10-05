@@ -7,10 +7,16 @@ import { UserLoginComponent } from './Component/Login/user-login/user-login.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { NgMultiSelectDropDownModule } from "ng-multiselect-dropdown";
+
 import { CreateUserComponent } from './Component/User/create-user/create-user.component';
 import { BlogListingComponent } from './Component/Blog/blog-listing/blog-listing.component';
 import { BlogCategoryComponent } from './Component/Blog/blog-category/blog-category.component';
 import { BlogTagComponent } from './Component/Blog/blog-tag/blog-tag.component';
+import { UserHeaderComponent } from './Component/Common/user-header/user-header.component';
+import { CreateBlogComponent } from './Component/Blog/create-blog/create-blog.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +25,20 @@ import { BlogTagComponent } from './Component/Blog/blog-tag/blog-tag.component';
     CreateUserComponent,
     BlogListingComponent,
     BlogCategoryComponent,
-    BlogTagComponent
+    BlogTagComponent,
+    UserHeaderComponent,
+    CreateBlogComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgbModule
+    NgMultiSelectDropDownModule.forRoot(),
+    NgbModule,BrowserAnimationsModule,  ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

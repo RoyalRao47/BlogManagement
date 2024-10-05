@@ -1,0 +1,259 @@
+<app-user-header></app-user-header>
+<br />
+<div class="col-md-10 offset-md-1 mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Create Blog</a>
+                </div>
+            </nav>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12" id="incomeform">
+                    <section id="inner-wrapper" class="incomeform">
+                        <article>
+                            <p style="color: cornsilk; font-size: 16px; background-color: green" class="text-center" *ngIf="successMessage">
+                                {{successMessage}}
+                              </p>
+                              <p style="color: cornsilk; font-size: 16px; background-color: tomato" class="text-center" *ngIf="errorMessage">
+                                {{errorMessage}}
+                              </p>
+                            <form [formGroup]="blogForm" (ngSubmit)="onSubmit()"  enctype="multipart/form-data">
+                                <input type="hidden" formControlName="blogId" class="form-control" />
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                                                <input type="text" formControlName="title" placeholder="Blog title"
+                                                    class="form-control"
+                                                    [ngClass]="{ 'is-invalid': formSubmitted && f['title'].errors  }" />
+                                                <div *ngIf="formSubmitted && f['title'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f['title'].errors['required']">
+                                                        Category Name is required
+                                                    </div>
+                                                    <div *ngIf="f['title'].errors['source']">
+                                                        Category Name must be at least 1 characters
+                                                    </div>
+                                                    <div *ngIf="f['title'].errors['maxlength']">
+                                                        Category Name must not exceed 200 characters
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                                                <textarea type="text" formControlName="introText"
+                                                    placeholder="Blog Intro Text" class="form-control" cols="3"
+                                                    [ngClass]="{ 'is-invalid': formSubmitted && f['introText'].errors  }"></textarea>
+                                                <div *ngIf="formSubmitted && f['introText'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f['introText'].errors['required']">
+                                                        Category Name is required
+                                                    </div>
+                                                    <div *ngIf="f['introText'].errors['source']">
+                                                        Category Name must be at least 1 characters
+                                                    </div>
+                                                    <div *ngIf="f['introText'].errors['maxlength']">
+                                                        Category Name must not exceed 200 characters
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                                                <textarea type="text" formControlName="blogContent"
+                                                    placeholder="Blog Content" class="form-control" rows="5"
+                                                    [ngClass]="{ 'is-invalid': formSubmitted && f['blogContent'].errors  }"></textarea>
+                                                <div *ngIf="formSubmitted && f['blogContent'].errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="f['blogContent'].errors['required']">
+                                                        Category Name is required
+                                                    </div>
+                                                    <div *ngIf="f['blogContent'].errors['source']">
+                                                        Category Name must be at least 1 characters
+                                                    </div>
+                                                    <div *ngIf="f['blogContent'].errors['maxlength']">
+                                                        Category Name must not exceed 200 characters
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <select formControlName="categoryId" class="form-select"
+                                                [ngClass]="{ 'is-invalid': formSubmitted && f['categoryId'].errors }">
+                                                <option value="0">--Select Blog Category--</option>
+                                                <option *ngFor="let cat of blogCategoryList" value={{cat.categoryId}}>
+                                                    {{cat.categoryName}}</option>
+                                            </select>
+                                            <div *ngIf="formSubmitted && f['categoryId'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['categoryId'].errors['required']">Blog Category is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <ng-multiselect-dropdown [placeholder]="'Select Tag'"
+                                                [settings]="dropdownSettings" [data]="blogTagList"
+                                                formControlName="selectedTag" (onSelect)="onItemSelect($event)"
+                                                (onDeSelect)="onItemDeSelect($event)"
+                                                (onSelectAll)="onSelectAll($event)"
+                                                (onDeSelectAll)="onDeSelectAll($event)">
+                                            </ng-multiselect-dropdown>
+                                            <div *ngIf="formSubmitted && f['selectedTag'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['selectedTag'].errors['required']">Blog Tag is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <select formControlName="status" class="form-select"
+                                                [ngClass]="{ 'is-invalid': formSubmitted && f['status'].errors }">
+                                                <option value="0">--Select Blog Status--</option>
+                                                <option *ngFor="let sat of blogStatusList" value={{sat.id}}>
+                                                    {{sat.name}}</option>
+                                            </select>
+                                            <div *ngIf="formSubmitted && f['status'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['status'].errors['required']">Blog Category is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="form-label col-sm-2">Status</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="isActive"
+                                                            value="true" formControlName="isActive" />
+                                                        <label class="form-check-label text-success"
+                                                            for="isActive">Active</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="isActive"
+                                                            value="false" formControlName="isActive" />
+                                                        <label class="form-check-label text-danger"
+                                                            for="isActive">InActive</label>
+                                                    </div>
+                                                    <div *ngIf="formSubmitted && f['isActive'].errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f['isActive'].errors['isActive']">
+                                                            Required
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <label class="form-label col-sm-2">Featured</label>
+                                                <div class="col-sm-10">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="isFeature"
+                                                            value="true" formControlName="isFeature" />
+                                                        <label class="form-check-label text-success"
+                                                            for="isFeature">Yes</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="isFeature"
+                                                            value="false" formControlName="isFeature" />
+                                                        <label class="form-check-label text-danger"
+                                                            for="isFeature">No</label>
+                                                    </div>
+                                                    <div *ngIf="formSubmitted && f['isFeature'].errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f['isFeature'].errors['required']">
+                                                            Required
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="file" id="blogImage" formControlName="blogImage" (change)="onFileSelect($event)" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block m-3">
+                                    Submit
+                                </button>
+                            </form>
+                        </article>
+                    </section>
+                </div>
+                <div class="col-md-6" id="incometable">
+                    <div class="main-content incometable">
+                        <div class="row mt-1">
+                            <div class="col">
+                                <div class="card bg-default shadow">
+                                    <div class="table-responsive">
+                                        <table class="table align-items-center table-dark table-flush">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">S.No</th>
+                                                    <th scope="col">Category</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let row of blogList">
+                                                    <td>
+                                                        {{ row.categoryId }}
+                                                    </td>
+                                                    <td>
+                                                        {{ row.categoryName }}
+                                                    </td>
+                                                    <td>
+
+                                                    </td>
+                                                    <td class="">
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

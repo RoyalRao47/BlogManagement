@@ -19,6 +19,7 @@ export class LoginUserService {
 
   getToken(): string {
     console.log("Token  " + this.token);
+    console.log("currentUserId  " + this.currentUserId);
     if (this.token != null) {
       return this.token; 
     }
@@ -32,9 +33,9 @@ export class LoginUserService {
     console.log(new Date() + ": Login User req  " + JSON.stringify(model));
     return this.http.post<any>(`${this.apiUrl}/login`, model, this.httpOptions).pipe(
       tap((response: any) => {
+        console.log(new Date() + ": Login User response  " + JSON.stringify(response));
         sessionStorage.setItem('currentUserId', response.userId);
         sessionStorage.setItem('token', response.token);
-        console.log(new Date() + ": Login User response  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Post'))
     );

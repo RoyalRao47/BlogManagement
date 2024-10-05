@@ -1,4 +1,6 @@
-<div class="col-md-10 offset-md-1">
+<app-user-header></app-user-header>
+<br>
+<div class="col-md-10 offset-md-1 mt-5">
   <div class="card">
     <div class="card-header text-center">
       <nav class="navbar navbar-light bg-light">
@@ -13,37 +15,23 @@
           <section id="inner-wrapper" class="incomeform">
             <article>
               <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-                <input
-                  type="hidden"
-                  formControlName="categoryId"
-                  class="form-control"
-                />
+                <input type="hidden" formControlName="categoryId" class="form-control" />
                 <div class="form-group">
                   <div class="input-group">
-                    <span class="input-group-addon"
-                      ><i class="fa fa-user"> </i
-                    ></span>
-                    <input
-                      type="text"
-                      formControlName="name"
-                      placeholder="Category Name"
-                      class="form-control"
+                    <span class="input-group-addon"><i class="fa fa-user"> </i></span>
+                    <input type="text" formControlName="name" placeholder="Category Name" class="form-control"
                       [ngClass]="{
                         'is-invalid': formSubmitted && f['name'].errors
-                      }"
-                    />
-                    <div
-                      *ngIf="formSubmitted && f['name'].errors"
-                      class="invalid-feedback"
-                    >
+                      }" />
+                    <div *ngIf="formSubmitted && f['name'].errors" class="invalid-feedback">
                       <div *ngIf="f['name'].errors['required']">
-                        Source Name is required
+                        Category Name is required
                       </div>
                       <div *ngIf="f['name'].errors['source']">
-                        Source Name must be at least 1 characters
+                        Category Name must be at least 1 characters
                       </div>
                       <div *ngIf="f['name'].errors['maxlength']">
-                        Source Name must not exceed 200 characters
+                        Category Name must not exceed 200 characters
                       </div>
                     </div>
                   </div>
@@ -53,37 +41,16 @@
                     <label class="form-label col-sm-2">Status</label>
                     <div class="col-sm-10">
                       <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="isActive"
-                          value="true"
-                          formControlName="isActive"
-                        />
-                        <label
-                          class="form-check-label text-success"
-                          for="isActive"
-                          >Active</label
-                        >
+                        <input class="form-check-input" type="radio" name="isActive" value="true"
+                          formControlName="isActive" />
+                        <label class="form-check-label text-success" for="isActive">Active</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="isActive"
-                          value="false"
-                          formControlName="isActive"
-                        />
-                        <label
-                          class="form-check-label text-danger"
-                          for="isActive"
-                          >InActive</label
-                        >
+                        <input class="form-check-input" type="radio" name="isActive" value="false"
+                          formControlName="isActive" />
+                        <label class="form-check-label text-danger" for="isActive">InActive</label>
                       </div>
-                      <div
-                        *ngIf="formSubmitted && f['isActive'].errors"
-                        class="invalid-feedback"
-                      >
+                      <div *ngIf="formSubmitted && f['isActive'].errors" class="invalid-feedback">
                         <div *ngIf="f['isActive'].errors['isActive']">
                           Required
                         </div>
@@ -104,9 +71,7 @@
               <div class="col">
                 <div class="card bg-default shadow">
                   <div class="table-responsive">
-                    <table
-                      class="table align-items-center table-dark table-flush"
-                    >
+                    <table class="table align-items-center table-dark table-flush">
                       <thead class="thead-dark">
                         <tr>
                           <th scope="col">S.No</th>
@@ -124,17 +89,10 @@
                             {{ row.categoryName }}
                           </td>
                           <td>
-                            <span
-                              (click)="onChangeStatus(row.categoryId)"
-                              [innerHTML]="getStatus(row.isActive)"
-                            ></span>
+                            <span (click)="onChangeStatus(row.categoryId)" [innerHTML]="getStatus(row.isActive)"></span>
                           </td>
                           <td class="">
-                            <button
-                              type="button"
-                              (click)="onEdit(row.categoryId)"
-                              class="btn btn-info btn-sm"
-                            >
+                            <button type="button" (click)="onEdit(row.categoryId)" class="btn btn-info btn-sm">
                               Edit
                             </button>
                           </td>

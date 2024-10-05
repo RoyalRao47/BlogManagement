@@ -1,5 +1,5 @@
 
-  #incomeform {
+#incomeform {
     -webkit-perspective: 1000px;
     -moz-perspective: 1000px;
     perspective: 1000px;
@@ -12,9 +12,9 @@
     -webkit-transition: .3s;
     -moz-transition: .3s;
     transition: .3s;
-    -webkit-transform: rotateY(5deg);
+    /* -webkit-transform: rotateY(5deg);
     -moz-transform: rotateY(5deg);
-    transform: rotateY(5deg);
+    transform: rotateY(5deg); */
   }
   
     .incomeform:hover {
