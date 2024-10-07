@@ -24,7 +24,7 @@ import {
   NgbDateParserFormatter,
   NgbDateStruct,
 } from '@ng-bootstrap/ng-bootstrap';
-import { Router, Routes } from '@angular/router';
+import { Router, Routes, ActivatedRoute } from '@angular/router';
 import {
   NgMultiSelectDropDownModule,
   IDropdownSettings,
@@ -37,6 +37,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-blog.component.css'],
 })
 export class CreateBlogComponent implements OnInit {
+  value: any;
   blogForm: FormGroup = new FormGroup({
     blogId: new FormControl(''),
     title: new FormControl(''),
@@ -68,7 +69,8 @@ export class CreateBlogComponent implements OnInit {
     private router: Router,
     private blogTagService: BlogTagService,
     private blogCategoryService: BlogCategoryService,
-    private createBlogService: CreateBlogService
+    private createBlogService: CreateBlogService,
+    private route: ActivatedRoute
   ) {
     this.blogList = [];
     this.blogCategoryList = [];
@@ -114,6 +116,35 @@ export class CreateBlogComponent implements OnInit {
     this.blogTagService.GetAllTag().subscribe((res) => {
       this.blogTagList = res;
     });
+    this.route.paramMap.subscribe(params => {
+      const value = params.get('value');
+      console.log('Value from route:', value);
+    });
+    this.value = this.route.snapshot.paramMap.get('value');
+    if(this.value != null)
+    {
+      this.GetBlogById(this.value);
+    }
+    
+  }
+
+  GetBlogById(value: any) {
+    this.createBlogService.GetBlogById(value).subscribe(data => {
+      this.formDataRespo = data;
+      console.log(" GetBlogById res" + JSON.stringify(this.formDataRespo));
+      this.blogForm.setValue({
+        blogId: this.formDataRespo.blogId,
+        title: this.formDataRespo.title,
+        introText: this.formDataRespo.introText,
+        blogContent: this.formDataRespo.blogContent,
+        categoryId: this.formDataRespo.categoryId,
+        status: this.formDataRespo.status,
+        blogImage: this.formDataRespo.blogImage,
+        isFeature: "" + this.formDataRespo.isFeature + "",
+        isActive: "" + this.formDataRespo.isActive + "",
+        selectedTag : this.getTags(this.formDataRespo.tagId)
+      });
+    });
   }
   validateNotZero(control: any) {
     return control.value === '0' ? { invalidSelection: true } : null;
@@ -136,8 +167,7 @@ export class CreateBlogComponent implements OnInit {
     this.model.title = this.blogForm.value.title;
     this.model.introText = this.blogForm.value.introText;
     this.model.blogContent = this.blogForm.value.blogContent;
-    this.model.isFeature =
-      this.blogForm.value.isFeature.toLowerCase() === 'true';
+    this.model.isFeature = this.blogForm.value.isFeature.toLowerCase() === 'true';
     this.model.categoryId = this.blogForm.value.categoryId;
     this.model.status = this.blogForm.value.status;
     this.model.tagId = tagIds;
@@ -183,9 +213,8 @@ export class CreateBlogComponent implements OnInit {
           this.successMessage = response.message;
           console.log(response.message);
           this.querySuccess = true;
-        }
-        else
-        {
+          this.router.navigate(['/blog-listing']);
+        } else {
           this.errorMessage = response.message;
         }
       },
@@ -195,8 +224,8 @@ export class CreateBlogComponent implements OnInit {
       },
     });
 
-    this.formSubmitted = false;
-    this.blogForm.reset();
+     this.formSubmitted = false;
+    // this.blogForm.reset();
   }
 
   onFileSelect(event: any) {
@@ -230,5 +259,17 @@ export class CreateBlogComponent implements OnInit {
   onDeSelectAll(items: any) {
     this.selectedTagList.splice(items);
     console.log('selectedTagList ' + JSON.stringify(this.selectedTagList));
+  }
+
+  getTags(tags: any) {
+    var tagAarray = tags;
+    var selectedTags = this.blogTagList.filter(function (item) {
+      
+      return tags.includes(item.tagId);
+    });
+    this.selectedTagList.push(selectedTags);
+    this.selectedTagList = this.selectedTagList.filter(item => Array.isArray(item) && item.length === 0 ? false : true);
+    return selectedTags;
+
   }
 }

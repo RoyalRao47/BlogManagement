@@ -284,10 +284,6 @@
     position: relative;
     top: -1px;
   }
-  
-   
-  
-  
-    
-  
-   
+  .text-end {
+    text-align: right !important;
+}

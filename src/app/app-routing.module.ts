@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'blog-category', component: BlogCategoryComponent },  
   { path: 'blog-tag', component: BlogTagComponent },
   { path: 'create-blog', component: CreateBlogComponent },  
+  { path: 'create-blog/:value', component: CreateBlogComponent },  
 
  
 ];

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmTServer\\BlogMgmtServer.csproj": {}
+    "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\BlogMgmtServer.csproj": {}
   },
   "projects": {
-    "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmTServer\\BlogMgmtServer.csproj": {
+    "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\BlogMgmtServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmTServer\\BlogMgmtServer.csproj",
+        "projectUniqueName": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\BlogMgmtServer.csproj",
         "projectName": "BlogMgmtServer",
-        "projectPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmTServer\\BlogMgmtServer.csproj",
+        "projectPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\BlogMgmtServer.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmTServer\\obj\\",
+        "outputPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,2 +1,79 @@
 <app-user-header></app-user-header>
-<p>blog-listing works!</p>
+<br />
+<div class="col-md-10 offset-md-1 mt-5">
+  <div class="card">
+    <div class="card-header text-center">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand">Blog List</a>
+        </div>
+      </nav>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12" id="">
+          <div class="main-content incometable">
+            <div class="row mt-1">
+              <div class="col">
+                <div class="card bg-default shadow">
+                  <div class="table-responsive">
+                    <table
+                      class="table align-items-center table-dark table-flush"
+                    >
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">S.No</th>
+                          <th scope="col">Image</th>
+                          <th scope="col">Title</th>
+                          <th scope="col">Intro Text</th>
+                          <th scope="col">Status</th>
+                          <th scope="col">Featured</th>
+                          <th scope="col">Active</th>
+                          <th scope="col">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let row of blogList">
+                          <td>
+                            {{ row.blogId }}
+                          </td>
+                          <td>
+                            <img [src]="row.blogImage" alt="{{ row.title }}" width="50" height="50">
+                          </td>
+                          <td>
+                            {{ row.title }}
+                          </td>
+                          <td>
+                            {{ row.introText }}
+                          </td>
+                          <td>
+                            {{ row.status }}
+                          </td>
+                          <td>
+                            {{ row.featured }}
+                          </td>
+                          <td>
+                            <span (click)="onChangeStatus(row.blogId)" [innerHTML]="getStatus(row.active)"></span>
+                          </td>
+                          <td class="">
+                            <button type="button" (click)="onEditBlog(row.blogId)" class="btn btn-info btn-sm">
+                              Edit
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="img-full-container">
+  <img src="">
+  <div class="unexpand">Click To Close</div>
+</div> -->
