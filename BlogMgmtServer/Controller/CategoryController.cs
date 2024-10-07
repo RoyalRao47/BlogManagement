@@ -24,7 +24,7 @@ namespace BlogMgmtServer.Controllers
             try
             {
                 _categoryService.SaveCategory(category);
-                return Ok(new { status = true, message = "Saved" });
+                return Ok(new { status = true, message = "Category Saved Successfully" });
             }
             catch (Exception ex)
             {
