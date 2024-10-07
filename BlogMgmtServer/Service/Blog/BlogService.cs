@@ -3,7 +3,7 @@ using BlogMgmtServer.Database;
 using BlogMgmtServer.Model;
 using BlogMgmtServer.DbTable;
 using System;
-using  Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting;
 
 namespace BlogMgmtServer.Service
 {
@@ -11,16 +11,16 @@ namespace BlogMgmtServer.Service
     {
         private bool disposedValue = false;
         private readonly DataContext _context;
-        private readonly IWebHostEnvironment  _env;
+        private readonly IWebHostEnvironment _env;
 
-        public BlogService(DataContext context, IWebHostEnvironment  hostingEnvironment)
+        public BlogService(DataContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _env = hostingEnvironment;
         }
         public List<BlogModel> GetBlogList()
         {
-            var bloglist = _context.Blogs.Include(c => c.BlogCategories).Include(t => t.BlogTags).ToList();
+            var bloglist = _context.Blogs.Include(c => c.BlogCategories).ThenInclude(bc => bc.Categories).Include(t => t.BlogTags).ThenInclude(bc => bc.Tags).ToList();
             List<BlogModel> blogDtoList = new List<BlogModel>();
             foreach (var blog in bloglist)
             {
@@ -29,12 +29,12 @@ namespace BlogMgmtServer.Service
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = blog.BlogImage;
-                _blog.Status = blog.Status;
-                _blog.IsFeature = blog.IsFeature;
-                _blog.IsActive = blog.IsActive;
-                _blog.CategoryId = blog.BlogCategories.FirstOrDefault().CategoryId ?? 0;
-                _blog.TagId = blog.BlogTags.Select(x => x.TagId??0).ToArray();
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.Status = blog.Status == "1" ? "Published" : blog.Status == "2" ? "Draft" : blog.Status == "3" ? "Archived" : "";
+                _blog.Featured = blog?.IsFeature == true ? "Yes" : "No"; ;
+                _blog.Active = blog?.IsActive == true ? "Yes" : "No";
+                _blog.CategoryName = blog.BlogCategories.FirstOrDefault().Categories.CategoryName ?? "";
+                _blog.TagName = blog.BlogTags.Select(x => x.Tags.TagName).ToArray();
                 blogDtoList.Add(_blog);
             }
             return blogDtoList;
@@ -46,12 +46,13 @@ namespace BlogMgmtServer.Service
             List<BlogModel> blogDtoList = new List<BlogModel>();
             foreach (var blog in bloglist)
             {
+                string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
                 BlogModel _blog = new BlogModel();
                 _blog.BlogId = blog.BlogId;
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = blog.BlogImage;
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
                 _blog.Status = blog.Status;
                 _blog.IsFeature = blog.IsFeature;
                 _blog.IsActive = blog.IsActive;
@@ -62,11 +63,25 @@ namespace BlogMgmtServer.Service
             return blogDtoList;
         }
 
-        public BlogModel GetBlogById(int BlogId)
+        public BlogModel GetBlogById(int blogId)
         {
-            var blog = _context.Blogs.Find(BlogId);
-            BlogModel blogDto = new BlogModel();
-            return blogDto;
+            BlogModel _blog = new BlogModel();
+             var blog = _context.Blogs.Include(c => c.BlogCategories).Include(t => t.BlogTags).FirstOrDefault(x => x.BlogId == blogId);
+            if (blog != null)
+            {
+                string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
+                _blog.BlogId = blog.BlogId;
+                _blog.Title = blog.Title;
+                _blog.IntroText = blog.IntroText;
+                _blog.BlogContent = blog.BlogContent;
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.Status = blog.Status;
+                _blog.IsFeature = blog.IsFeature;
+                _blog.IsActive = blog.IsActive;
+                _blog.CategoryId = blog.BlogCategories.FirstOrDefault().CategoryId ?? 0;
+                _blog.TagId = blog.BlogTags.Select(x => x.TagId ?? 0).ToArray();
+            }
+            return _blog;
         }
 
         public void ChangeBlogStatus(int BlogId)
@@ -77,7 +92,7 @@ namespace BlogMgmtServer.Service
                 Blog.IsActive = !Blog.IsActive;
                 Blog.ModifiedDate = DateTime.Now;
                 _context.Entry(Blog).State = EntityState.Modified;
-                _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
         }
 
@@ -102,7 +117,7 @@ namespace BlogMgmtServer.Service
                     existingBlog.IsActive = BlogDto.IsActive;
 
                     _context.Entry(existingBlog).State = EntityState.Modified;
-                    _context.SaveChangesAsync();
+                    _context.SaveChanges();
 
                     var existingBlogCategory = _context.BlogCategories.FirstOrDefault(c => c.BlogId == BlogDto.BlogId);
                     if (existingBlogCategory == null)
@@ -121,7 +136,7 @@ namespace BlogMgmtServer.Service
                         if (existingBlogCategory?.CategoryId != BlogDto.CategoryId)
                         {
                             _context.BlogCategories.Remove(existingBlogCategory);
-                            _context.SaveChangesAsync();
+                            _context.SaveChanges();
 
                             var blogCategory = new BlogCategory
                             {
@@ -247,7 +262,7 @@ namespace BlogMgmtServer.Service
                     fs.Flush();
                 }
             }
-            return "/" + imagePath  + "/" + filename;
+            return "/" + imagePath + "/" + filename;
         }
         protected virtual void Dispose(bool disposing)
         {

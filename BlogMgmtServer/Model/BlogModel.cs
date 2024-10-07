@@ -31,5 +31,13 @@ namespace BlogMgmtServer.Model
 
         public IFormFile? File { get; set; }
 
+        public string? Featured { get; set; }
+
+        public string? Active { get; set; }
+
+        public string? CategoryName { get; set; }
+
+        public string[]? TagName { get; set; }
+
     }
 }

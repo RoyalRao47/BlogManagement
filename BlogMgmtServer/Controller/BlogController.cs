@@ -33,11 +33,11 @@ namespace BlogMgmtServer.Controllers
             }
         }
 
-        // [HttpGet("GetBlogById")]
-        // public ActionResult<BlogModel> GetBlogById(int BlogId)
-        // {
-        //     return _BlogService.GetBlogById(BlogId);
-        // }
+        [HttpGet("GetBlogById")]
+        public ActionResult<BlogModel> GetBlogById(int BlogId)
+        {
+            return _BlogService.GetBlogById(BlogId);
+        }
 
         [HttpGet("GetAllBlog")]
         public ActionResult<IEnumerable<BlogModel>> GetAllBlog()
