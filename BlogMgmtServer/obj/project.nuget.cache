@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "v0nfGI3kRGCCJPN2bGrd63CWI+iFc67fmKHcCp+mG6RyUj31HxAOFyRaqvyccQwEDEUpwWvafYvzZ97auB0qqg==",
+  "dgSpecHash": "T2PXpmkjOYtMpMzQTTXm700nUQTSl+oU7xA2r28RqiAEcANFmXjHg/W0jjM59okrnY9QRbvwCpLpel1LKsIp2g==",
   "success": true,
   "projectFilePath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\BlogMgmtServer.csproj",
-=======
-  "dgSpecHash": "KZlOLs6jlGFuYN8Y7azfZ7NDaehH5ox5/qpMpB17hLC5PaiOrOsL0emeWvY9H/Ic2Nh/51KDot0RnutiJ2xpLQ==",
-  "success": true,
-  "projectFilePath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
->>>>>>> 5a0a98d86ac5411c9997eb8ec50a4c64c307e1c9
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
@@ -91,5 +85,12 @@
     "C:\\Users\\Admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmt\\BlogMgmtServer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

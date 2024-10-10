@@ -9,19 +9,11 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlogMgmtServer
 build_property.RootNamespace = BlogMgmtServer
-<<<<<<< HEAD
 build_property.ProjectDir = D:\UpSkilingTask\Angular\BlogManagement\BlogMgmt\BlogMgmtServer\
-=======
-build_property.ProjectDir = D:\UpSkilingTask\Angular\BlogManagement\BlogMgmtServer\
->>>>>>> 5a0a98d86ac5411c9997eb8ec50a4c64c307e1c9
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-<<<<<<< HEAD
 build_property.MSBuildProjectDirectory = D:\UpSkilingTask\Angular\BlogManagement\BlogMgmt\BlogMgmtServer
-=======
-build_property.MSBuildProjectDirectory = D:\UpSkilingTask\Angular\BlogManagement\BlogMgmtServer
->>>>>>> 5a0a98d86ac5411c9997eb8ec50a4c64c307e1c9
 build_property._RazorSourceGeneratorDebug = 
