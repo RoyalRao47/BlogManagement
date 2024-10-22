@@ -6,10 +6,14 @@ import { BlogListingComponent } from './Component/Blog/blog-listing/blog-listing
 import { BlogCategoryComponent } from './Component/Blog/blog-category/blog-category.component';
 import { BlogTagComponent } from './Component/Blog/blog-tag/blog-tag.component';
 import { CreateBlogComponent } from './Component/Blog/create-blog/create-blog.component';
+import { MainPageComponent } from './home/main-page/main-page.component';
+import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 
 
 const routes: Routes = [
-  { path: '', component: UserLoginComponent }, 
+  { path: '', component: MainPageComponent }, 
+  { path: 'blog-detail/:value', component: BlogDetailComponent }, 
+  { path: 'login', component: UserLoginComponent }, 
   { path: 'create-user', component: CreateUserComponent },  
   { path: 'blog-listing', component: BlogListingComponent },  
   { path: 'blog-category', component: BlogCategoryComponent },  
