@@ -33,7 +33,49 @@ export class CreateBlogService {
       })
     });
   }
+  GetAllBlog(): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetAllBlog`, this.httpOptions).pipe(
+      tap((response: any) => {
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
 
+  GetActiveBlog(): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetActiveBlog`, this.httpOptions).pipe(
+      tap((response: any) => {
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
+
+  GetBlogById(blogId: bigint): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetBlogById?BlogId=${blogId}`, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(new Date() + ": GetBlogById  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
+
+  ChangeStatus(blogId: bigint): Observable<any[]> {
+    console.log("ChangeStatus blogId " + blogId);
+    return this.http.post<any>(`${this.apiUrl}/ChangeBlogStatus?BlogId=${blogId}`, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(": ChangeStatus res " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
+  
+  GetBlogDetailById(blogId: bigint): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetBlogDetailById?BlogId=${blogId}`, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(new Date() + ": GetBlogDetailById  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
 
   // SubmitBlog(formData: FormData): Observable<any> {
   //   formData.forEach((value, key) => {

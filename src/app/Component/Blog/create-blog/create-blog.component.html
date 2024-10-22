@@ -203,8 +203,16 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input type="file" id="blogImage" formControlName="blogImage" (change)="onFileSelect($event)" class="form-control">
+                                                <input type="file" id="blogImage"  (change)="onFileSelect($event)" class="form-control">
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <div class="form-group">
+                                            <div *ngIf="blogForm.controls['blogImage'].value">
+                                                <img [src]="blogForm.controls['blogImage'].value" alt="Blog Image" style="width: 50%; height: 50%;" />
+                                              </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -214,44 +222,6 @@
                             </form>
                         </article>
                     </section>
-                </div>
-                <div class="col-md-6" id="incometable">
-                    <div class="main-content incometable">
-                        <div class="row mt-1">
-                            <div class="col">
-                                <div class="card bg-default shadow">
-                                    <div class="table-responsive">
-                                        <table class="table align-items-center table-dark table-flush">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th scope="col">S.No</th>
-                                                    <th scope="col">Category</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr *ngFor="let row of blogList">
-                                                    <td>
-                                                        {{ row.categoryId }}
-                                                    </td>
-                                                    <td>
-                                                        {{ row.categoryName }}
-                                                    </td>
-                                                    <td>
-
-                                                    </td>
-                                                    <td class="">
-
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -17,6 +17,8 @@ import { BlogCategoryComponent } from './Component/Blog/blog-category/blog-categ
 import { BlogTagComponent } from './Component/Blog/blog-tag/blog-tag.component';
 import { UserHeaderComponent } from './Component/Common/user-header/user-header.component';
 import { CreateBlogComponent } from './Component/Blog/create-blog/create-blog.component';
+import { MainPageComponent } from './home/main-page/main-page.component';
+import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CreateBlogComponent } from './Component/Blog/create-blog/create-blog.co
     BlogCategoryComponent,
     BlogTagComponent,
     UserHeaderComponent,
-    CreateBlogComponent
+    CreateBlogComponent,
+    MainPageComponent,
+    BlogDetailComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,
