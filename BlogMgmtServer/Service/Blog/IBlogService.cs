@@ -10,5 +10,6 @@ namespace BlogMgmtServer.Service
        BlogModel GetBlogById(int BlogId);
        void ChangeBlogStatus(int BlogId);
        void SaveBlog(BlogModel Blog);
+       BlogModel GetBlogDetailById(int BlogId);
     }
 }

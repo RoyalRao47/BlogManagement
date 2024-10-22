@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\07OCT_blogscript.sql",
+      "PackagePath": "staticwebassets\\Content\\Blog\\07OCT_blogscript.sql"
+    },
+    {
       "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1698034433422.JPEG",
       "PackagePath": "staticwebassets\\Content\\Blog\\1698034433422.JPEG"
     },

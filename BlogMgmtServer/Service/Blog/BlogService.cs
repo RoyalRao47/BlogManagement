@@ -40,33 +40,11 @@ namespace BlogMgmtServer.Service
             return blogDtoList;
         }
 
-        public List<BlogModel> GetActiveBlogList()
-        {
-            var bloglist = _context.Blogs.Include(c => c.BlogCategories).Include(t => t.BlogTags).Where(x => x.IsActive == true).ToList();
-            List<BlogModel> blogDtoList = new List<BlogModel>();
-            foreach (var blog in bloglist)
-            {
-                string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
-                BlogModel _blog = new BlogModel();
-                _blog.BlogId = blog.BlogId;
-                _blog.Title = blog.Title;
-                _blog.IntroText = blog.IntroText;
-                _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
-                _blog.Status = blog.Status;
-                _blog.IsFeature = blog.IsFeature;
-                _blog.IsActive = blog.IsActive;
-                _blog.CategoryId = blog.BlogCategories.FirstOrDefault().CategoryId ?? 0;
-                _blog.TagId = blog.BlogTags.Select(x => x.TagId ?? 0).ToArray();
-                blogDtoList.Add(_blog);
-            }
-            return blogDtoList;
-        }
 
         public BlogModel GetBlogById(int blogId)
         {
             BlogModel _blog = new BlogModel();
-             var blog = _context.Blogs.Include(c => c.BlogCategories).Include(t => t.BlogTags).FirstOrDefault(x => x.BlogId == blogId);
+            var blog = _context.Blogs.Include(c => c.BlogCategories).Include(t => t.BlogTags).FirstOrDefault(x => x.BlogId == blogId);
             if (blog != null)
             {
                 string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
@@ -264,6 +242,67 @@ namespace BlogMgmtServer.Service
             }
             return "/" + imagePath + "/" + filename;
         }
+
+        public List<BlogModel> GetActiveBlogList()
+        {
+            var bloglist = _context.Blogs.Include(u => u.User).Include(c => c.BlogCategories).ThenInclude(x=>x.Categories).Include(t => t.BlogTags).ThenInclude(x=>x.Tags).Where(x => x.IsActive == true).ToList();
+            List<BlogModel> blogDtoList = new List<BlogModel>();
+            foreach (var blog in bloglist)
+            {
+                string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
+                BlogModel _blog = new BlogModel();
+                _blog.BlogId = blog.BlogId;
+                _blog.Title = blog.Title;
+                _blog.IntroText = blog.IntroText;
+                _blog.BlogContent = blog.BlogContent;
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.Status = blog.Status;
+                _blog.IsFeature = blog.IsFeature;
+                _blog.IsActive = blog.IsActive;
+                _blog.CategoryId = blog.BlogCategories.FirstOrDefault().CategoryId ?? 0;
+                _blog.TagId = blog.BlogTags.Select(x => x.TagId ?? 0).ToArray();
+
+                _blog.Featured = blog?.IsFeature ?? false == true ? "Featured" : null;
+                _blog.Active = blog?.IsActive ?? false == true ? "Active" : null;
+                _blog.CategoryName = blog?.BlogCategories?.FirstOrDefault()?.Categories?.CategoryName;
+                _blog.TagName = blog?.BlogTags?.Select(x => x.Tags.TagName).ToArray(); ;
+                _blog.CreatedDate = blog.ModifiedDate != null ? blog.ModifiedDate.ToString() : blog.CreatedDate.ToString();
+                _blog.CreatedByName = blog.User.FullName;
+                _blog.IsNew = (DateTime.Now.Date - (blog.CreatedDate?.Date ?? DateTime.Now)).TotalDays == 1 ? "New" : null;
+                blogDtoList.Add(_blog);
+            }
+            return blogDtoList;
+        }
+
+        public BlogModel GetBlogDetailById(int blogId)
+        {
+            BlogModel _blog = new BlogModel();
+            var blog = _context.Blogs.Include(u => u.User).Include(c => c.BlogCategories).ThenInclude(x=>x.Categories).Include(t => t.BlogTags).ThenInclude(x=>x.Tags).FirstOrDefault(x => x.BlogId == blogId);
+            if (blog != null)
+            {
+                string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
+                _blog.BlogId = blog.BlogId;
+                _blog.Title = blog.Title;
+                _blog.IntroText = blog.IntroText;
+                _blog.BlogContent = blog.BlogContent;
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.Status = blog.Status;
+                _blog.IsFeature = blog.IsFeature;
+                _blog.IsActive = blog.IsActive;
+                _blog.CategoryId = blog.BlogCategories?.FirstOrDefault()?.CategoryId ?? 0;
+                _blog.TagId = blog?.BlogTags?.Select(x => x.TagId ?? 0).ToArray();
+
+                _blog.Featured = blog?.IsFeature ?? false == true ? "Featured" : null;
+                _blog.Active = blog?.IsActive ?? false == true ? "Active" : null;
+                _blog.CategoryName = blog?.BlogCategories?.FirstOrDefault()?.Categories?.CategoryName;
+                _blog.TagName = blog?.BlogTags?.Select(x => x.Tags.TagName).ToArray(); ;
+                _blog.CreatedDate = blog.ModifiedDate != null ? blog.ModifiedDate.ToString() : blog.CreatedDate.ToString();
+                _blog.CreatedByName = blog.User.FullName;
+                _blog.IsNew = (DateTime.Now.Date - (blog.CreatedDate?.Date ?? DateTime.Now)).TotalDays == 1 ? "New" : null;
+            }
+            return _blog;
+        }
+
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
