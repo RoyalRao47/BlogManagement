@@ -39,5 +39,10 @@ namespace BlogMgmtServer.Model
 
         public string[]? TagName { get; set; }
 
+        public string? CreatedDate { get; set; }
+        public string? CreatedByName { get; set; }
+
+        public string? IsNew { get; set; }
+
     }
 }

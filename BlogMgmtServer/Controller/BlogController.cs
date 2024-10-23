@@ -65,5 +65,11 @@ namespace BlogMgmtServer.Controllers
             }
         }
 
+        [HttpGet("GetBlogDetailById")]
+        public ActionResult<BlogModel> GetBlogDetailById(int BlogId)
+        {
+            return _BlogService.GetBlogDetailById(BlogId);
+        }
+
     }
 }
