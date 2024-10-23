@@ -1,48 +1,120 @@
-<!-- Section: Design Block -->
-<section class="">
-    <!-- Jumbotron -->
-    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+<header class="tm-header" id="tm-header">
+  <div class="tm-header-wrapper">
+    <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="tm-site-header">
+      <div class="mb-3 mx-auto tm-site-logo">
+        <i class="fas fa-rss fa-2x"></i>
+      </div>
+      <h1 class="text-center">Rao Blog's</h1>
+    </div>
+    <nav class="tm-nav" id="tm-nav">
+      <ul>
+        <li class="tm-nav-item active">
+          <a routerLink="/" class="tm-nav-link">
+            <i class="fas fa-home"></i>
+            Blog Home
+          </a>
+        </li>
+        <li class="tm-nav-item">
+          <a routerLink="/login" class="tm-nav-link">
+            <i class="fas fa-sign-in"></i>
+            Login
+          </a>
+        </li>
+        <li class="tm-nav-item">
+          <a routerLink="/create-user" class="tm-nav-link">
+            <i class="fas fa-user-plus"></i>
+            Sign Up
+          </a>
+        </li>
+        <li class="tm-nav-item">
+          <a href="about.html" class="tm-nav-link">
+            <i class="fas fa-users"></i>
+            About Rao Blog
+          </a>
+        </li>
+        <li class="tm-nav-item">
+          <a href="contact.html" class="tm-nav-link">
+            <i class="far fa-comments"></i>
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="tm-mb-65">
+      <a rel="nofollow" href="https://fb.com/templatemo" class="tm-social-link">
+        <i class="fab fa-facebook tm-social-icon"></i>
+      </a>
+      <a href="https://twitter.com" class="tm-social-link">
+        <i class="fab fa-twitter tm-social-icon"></i>
+      </a>
+      <a href="https://instagram.com" class="tm-social-link">
+        <i class="fab fa-instagram tm-social-icon"></i>
+      </a>
+      <a href="https://linkedin.com" class="tm-social-link">
+        <i class="fab fa-linkedin tm-social-icon"></i>
+      </a>
+    </div>
+    <p class="tm-mb-80 pr-5 text-white">
+      Rao Blog is a multi-purpose HTML template from TemplateMo website. Left
+      side is a sticky menu bar. Right side content will scroll up and down.
+    </p>
+  </div>
+</header>
+<div class="container-fluid">
+  <main class="tm-main">
+    <!-- Search form -->
+    <div class="row tm-row">
       <div class="container">
-        <div class="row gx-lg-5 align-items-center">
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <h1 class="my-5 display-3 fw-bold ls-tight">
-              Blog Management <br />
-              <span class="text-primary">The Rao Sahab Creation</span>
-            </h1>
-            <p style="color: hsl(217, 10%, 50.8%)">
-                The Blog Management App is a web-based system designed to manage the creation, publication, and organization of blog content. 
-                It allows users, typically authors, to write, edit, and publish blog posts, as well as interact with readers through comments, likes, and post categorization.
-            </p>
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center">
+              <h2 class="tm-color-primary tm-mb-60">Login</h2>
+            </div>
           </div>
-  
-          <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="col-md-8 offset-md-2">
+            <hr class="tm-hr-primary tm-mb-55">
             <div class="card">
               <div class="card-body py-5 px-md-5">
-                <p style="color: cornsilk; font-size: 16px; background-color: tomato" class="text-center" *ngIf="errorMessage">
-                  {{errorMessage}}
+                <p style="
+                    color: cornsilk;
+                    font-size: 16px;
+                    background-color: tomato;
+                  " class="text-center" *ngIf="errorMessage">
+                  {{ errorMessage }}
                 </p>
                 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                   <!-- Email input -->
                   <div class="form-outline mb-4">
                     <label class="form-label" for="email">UserName/Email</label>
-                    <input class="form-control" type="text" formControlName="email" [ngClass]="{ 'is-invalid': userSubmitted && f['email'].errors }" />
+                    <input class="form-control" type="text" formControlName="email" [ngClass]="{
+                        'is-invalid': userSubmitted && f['email'].errors
+                      }" />
                     <div *ngIf="userSubmitted && f['email'].errors" class="invalid-feedback">
-                      <div *ngIf="f['email'].errors['required']">UserName is required</div>
+                      <div *ngIf="f['email'].errors['required']">
+                        UserName is required
+                      </div>
                     </div>
                   </div>
-  
+
                   <!-- Password input -->
                   <div class="form-outline mb-4">
                     <label class="form-label" for="password">Password</label>
-                    <input class="form-control" type="password" formControlName="password" [ngClass]="{ 'is-invalid': userSubmitted && f['password'].errors }" />
+                    <input class="form-control" type="password" formControlName="password" [ngClass]="{
+                        'is-invalid': userSubmitted && f['password'].errors
+                      }" />
                     <div *ngIf="userSubmitted && f['password'].errors" class="invalid-feedback">
-                      <div *ngIf="f['password'].errors['required']">Password is required</div>
+                      <div *ngIf="f['password'].errors['required']">
+                        Password is required
+                      </div>
                       <div *ngIf="f['password'].errors['minlength']">
                         Password must be at least 5 characters
                       </div>
                     </div>
                   </div>
-  
+
                   <!-- Checkbox -->
                   <div class="form-check d-flex justify-content-center mb-4">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
@@ -50,27 +122,32 @@
                       Remember
                     </label>
                   </div>
-  
+
                   <div class="text-center">
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">
+                    <button type="submit" class="tm-btn tm-btn-primary tm-btn-small">
                       Submit
                     </button>
                   </div>
-                  <!-- Register buttons -->
-                  <div class="text-center">
-                    <button type="button" (click)="onCreateUser()" class="btn btn-link btn-block mb-4">
-                      Sign Up
-                    </button>
-                  </div>
+
                 </form>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="row tm-row tm-mt-100 tm-mb-75"></div>
     </div>
-    <!-- Jumbotron -->
-  </section>
-  <!-- Section: Design Block -->
-  
+
+    <footer class="row tm-row">
+      <hr class="col-12" />
+      <div class="col-md-6 col-12 tm-color-gray">
+        Design:
+        <a rel="nofollow" target="_parent" href="#" class="tm-external-link">Rao Blogs</a>
+      </div>
+      <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+        Copyright 2020 Rao Blog Company Co. Ltd.
+      </div>
+    </footer>
+  </main>
+</div>

@@ -1,26 +1,97 @@
-<nav class="navbar navbar-expand-xl nav_area sticky ">
-    <div class="container">
-      <div class="logo">
-        <a routerLink="/blog-listing" class="logo-light">Amit Kr Yadav</a>
-        <a routerLink="/blog-listing" class="logo-dark">Rao Sahab</a>
+<header class="tm-header" id="tm-header">
+  <div class="tm-header-wrapper">
+    <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="tm-site-header">
+      <div class="mb-3 mx-auto tm-site-logo">
+        <i class="fas fa-rss fa-2x"></i>
       </div>
-      <div class="collapse navbar-collapse " id="navbarNav">
-        <ul class="navbar-nav ml-auto navbar-center main_menu onepage_nav">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/blog-listing">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/create-blog">Create Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/blog-category">Blog Category</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/blog-tag">Blog Tags</a>
-          </li>
-        </ul>
-      </div>
+      <h1 class="text-center">Rao Blog's</h1>
     </div>
-  </nav>
-  <br />
+    <nav class="tm-nav" id="tm-nav">
+      <ul>
+        <li class="tm-nav-item">
+          <a routerLink="/" class="tm-nav-link">
+            <i class="fas fa-home"></i>
+            Blog Home
+          </a>
+        </li>
+        <li *ngIf="this.userType == '0'" class="tm-nav-item">
+          <a routerLink="/login" class="tm-nav-link">
+            <i class="fas fa-sign-in"></i>
+            Login
+          </a>
+        </li>
+        <li *ngIf="this.userType == '0'" class="tm-nav-item">
+          <a routerLink="/create-user" class="tm-nav-link">
+            <i class="fas fa-user-plus"></i>
+            Sign Up
+          </a>
+        </li>
+        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+          <a routerLink="/blog-listing" class="tm-nav-link">
+            <i class="fas fa-list"></i>
+            Blog List
+          </a>
+        </li>
+        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+          <a routerLink="/create-blog" class="tm-nav-link">
+            <i class="fas fa-plus"></i>
+            Create Blog
+          </a>
+        </li>
+        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+          <a routerLink="/blog-category" class="tm-nav-link">
+            <i class="fas fa-th-large"></i>
+            Blog Category
+          </a>
+        </li>
+        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+          <a routerLink="/blog-tag" class="tm-nav-link">
+            <i class="fas fa-th"></i>
+            Blog Tags
+          </a>
+        </li>
+        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+          <a href="#" (click)="onSignOut(this.userType)" class="tm-nav-link">
+            <i class="fas fa-sign-out"></i>
+           Sign Out
+          </a>
+        </li>
+        <li class="tm-nav-item">
+          <a href="about.html" class="tm-nav-link">
+            <i class="fas fa-users"></i>
+            About Rao Blog
+          </a>
+        </li>
+        <li class="tm-nav-item">
+          <a href="contact.html" class="tm-nav-link">
+            <i class="far fa-comments"></i>
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="tm-mb-65">
+      <a rel="nofollow" href="https://fb.com/templatemo" class="tm-social-link">
+        <i class="fab fa-facebook tm-social-icon"></i>
+      </a>
+      <a href="https://twitter.com" class="tm-social-link">
+        <i class="fab fa-twitter tm-social-icon"></i>
+      </a>
+      <a href="https://instagram.com" class="tm-social-link">
+        <i class="fab fa-instagram tm-social-icon"></i>
+      </a>
+      <a href="https://linkedin.com" class="tm-social-link">
+        <i class="fab fa-linkedin tm-social-icon"></i>
+      </a>
+    </div>
+    <p class="tm-mb-80 pr-5 text-white">
+      Rao Blog is a multi-purpose HTML template from TemplateMo website. Left
+      side is a sticky menu bar. Right side content will scroll up and down.
+    </p>
+  </div>
+</header>
+
   

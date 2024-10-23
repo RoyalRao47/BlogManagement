@@ -98,13 +98,13 @@
   .table-dark,
   .table-dark > th,
   .table-dark > td {
-    background-color: #c1c2c3;
+    background-color: #0CC;
   }
   
   .table .thead-dark th {
     color: #f8f9fe;
-    border-color: #1f3a68;
-    background-color: #172b4d;
+    border-color: #0CC;
+    background-color: #0CC;
   }
   
   .table .thead-light th {

@@ -87,7 +87,7 @@ export class BlogCategoryComponent implements OnInit {
       console.log(" GetIncomeSource res" + JSON.stringify(this.formDataRespo));
       this.categoryForm.setValue({
         categoryId: this.formDataRespo.categoryId,
-        name: this.formDataRespo.name,
+        name: this.formDataRespo.categoryName,
         isActive: "" + this.formDataRespo.isActive + "",
       });
     });

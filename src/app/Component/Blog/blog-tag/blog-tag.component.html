@@ -1,166 +1,111 @@
-
 <app-user-header></app-user-header>
 <br>
-<div class="col-md-10 offset-md-1 mt-5">
-    <div class="card">
-      <div class="card-header text-center">
-        <nav class="navbar navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand">Blog Tags</a>
-          </div>
-        </nav>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6" id="incomeform">
-            <section id="inner-wrapper" class="incomeform">
-              <article>
-                <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
-                  <input
-                    type="hidden"
-                    formControlName="tagId"
-                    class="form-control"
-                  />
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"
-                        ><i class="fa fa-user"> </i
-                      ></span>
-                      <input
-                        type="text"
-                        formControlName="tagName"
-                        placeholder="Tag Name"
-                        class="form-control"
-                        [ngClass]="{
+<div class="container-fluid">
+  <main class="tm-main-new">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header text-center">
+          <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand">Blog Tags</a>
+            </div>
+          </nav>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6" id="incomeform">
+              <section id="inner-wrapper" class="incomeform">
+                <article>
+                  <form [formGroup]="tagForm" (ngSubmit)="onSubmit()">
+                    <input type="hidden" formControlName="tagId" class="form-control" />
+                    <div class="form-outline mb-4">
+                        <input type="text" formControlName="tagName" placeholder="Tag Name" class="form-control"
+                          [ngClass]="{
                           'is-invalid': formSubmitted && f['tagName'].errors
-                        }"
-                      />
-                      <div
-                        *ngIf="formSubmitted && f['tagName'].errors"
-                        class="invalid-feedback"
-                      >
-                        <div *ngIf="f['tagName'].errors['required']">
+                        }" />
+                        <div *ngIf="formSubmitted && f['tagName'].errors" class="invalid-feedback">
+                          <div *ngIf="f['tagName'].errors['required']">
                             Tag Name is required
-                        </div>
-                        <div *ngIf="f['tagName'].errors['source']">
+                          </div>
+                          <div *ngIf="f['tagName'].errors['source']">
                             Tag Name must be at least 1 characters
-                        </div>
-                        <div *ngIf="f['tagName'].errors['maxlength']">
+                          </div>
+                          <div *ngIf="f['tagName'].errors['maxlength']">
                             Tag Name must not exceed 200 characters
+                          </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"
-                        ><i class="fa fa-user"> </i
-                      ></span>
-                      <input
-                        type="text"
-                        formControlName="slug"
-                        placeholder="Tag Slug"
-                        class="form-control"
-                      />
+                    <div class="form-outline mb-4">
+                        <input type="text" formControlName="slug" placeholder="Tag Slug" class="form-control" />
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <label class="form-label col-sm-2">Status</label>
-                      <div class="col-sm-10">
-                        <div class="form-check form-check-inline">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="isActive"
-                            value="true"
-                            formControlName="isActive"
-                          />
-                          <label
-                            class="form-check-label text-success"
-                            for="isActive"
-                            >Active</label
-                          >
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="isActive"
-                            value="false"
-                            formControlName="isActive"
-                          />
-                          <label
-                            class="form-check-label text-danger"
-                            for="isActive"
-                            >InActive</label
-                          >
-                        </div>
-                        <div
-                          *ngIf="formSubmitted && f['isActive'].errors"
-                          class="invalid-feedback"
-                        >
-                          <div *ngIf="f['isActive'].errors['isActive']">
-                            Required
+                    <div class="form-group">
+                      <div class="input-group">
+                        <label class="form-label col-sm-2">Status</label>
+                        <div class="col-sm-10">
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="isActive" value="true"
+                              formControlName="isActive" />
+                            <label class="form-check-label text-success" for="isActive">Active</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="isActive" value="false"
+                              formControlName="isActive" />
+                            <label class="form-check-label text-danger" for="isActive">InActive</label>
+                          </div>
+                          <div *ngIf="formSubmitted && f['isActive'].errors" class="invalid-feedback">
+                            <div *ngIf="f['isActive'].errors['isActive']">
+                              Required
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <button type="submit" class="btn btn-success btn-block m-3">
-                    Submit
-                  </button>
-                </form>
-              </article>
-            </section>
-          </div>
-          <div class="col-md-6" id="incometable">
-            <div class="main-content incometable">
-              <div class="row mt-1">
-                <div class="col">
-                  <div class="card bg-default shadow">
-                    <div class="table-responsive">
-                      <table
-                        class="table align-items-center table-dark table-flush"
-                      >
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col">S.No</th>
-                            <th scope="col">Tag Name</th>
-                            <th scope="col">Slug</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let row of tagList">
-                            <td>
-                              {{ row.tagId }}
-                            </td>
-                            <td>
-                              {{ row.tagName }}
-                            </td>
-                            <td>
+                    <button type="submit" class="mb-2 tm-btn tm-btn-primary tm-prev-next">
+                      Submit
+                    </button>
+                  </form>
+                </article>
+              </section>
+            </div>
+            <div class="col-md-6" id="incometable">
+              <div class="main-content incometable">
+                <div class="row mt-1">
+                  <div class="col">
+                    <div class="card bg-default shadow">
+                      <div class="table-responsive">
+                        <table class="table align-items-center table-dark table-flush">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">S.No</th>
+                              <th scope="col">Tag Name</th>
+                              <th scope="col">Slug</th>
+                              <th scope="col">Status</th>
+                              <th scope="col">Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let row of tagList">
+                              <td>
+                                {{ row.tagId }}
+                              </td>
+                              <td>
+                                {{ row.tagName }}
+                              </td>
+                              <td>
                                 {{ row.slug }}
                               </td>
-                            <td>
-                              <span
-                                (click)="onChangeStatus(row.tagId)"
-                                [innerHTML]="getStatus(row.isActive)"
-                              ></span>
-                            </td>
-                            <td class="">
-                              <button
-                                type="button"
-                                (click)="onEdit(row.tagId)"
-                                class="btn btn-info btn-sm"
-                              >
-                                Edit
-                              </button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                              <td>
+                                <span (click)="onChangeStatus(row.tagId)" [innerHTML]="getStatus(row.isActive)"></span>
+                              </td>
+                              <td class="">
+                                <button type="button" (click)="onEdit(row.tagId)" class="btn btn-info btn-sm">
+                                  Edit
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -170,5 +115,5 @@
         </div>
       </div>
     </div>
-  </div>
-  
+  </main>
+</div>

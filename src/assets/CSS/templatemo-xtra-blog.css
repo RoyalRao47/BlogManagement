@@ -56,7 +56,7 @@ hr {
 
 .tm-site-header {
     margin-top: 50px;
-    margin-bottom: 115px;
+    margin-bottom: 70px;
 }
 
 .tm-site-logo {
@@ -70,6 +70,10 @@ hr {
 }
 
 .tm-site-logo i { color: #0CC; }
+.tm-main-new {
+    margin-left: 400px;
+    padding: 25px 25px 25px;
+}
 
 .tm-main {
     margin-left: 400px;
@@ -348,7 +352,10 @@ video {
     border-color: #0CC;
     border-radius: 0;
 }
-
+textarea.form-control {
+    min-height: calc(1.5em + .75rem + calc(var(--bs-border-width)* 2));
+    height: auto;
+}
 .tm-comment-form { max-width: 360px; }
 .tm-category-list { list-style-type: none; }
 figure { margin: 0; }
@@ -603,4 +610,12 @@ a:hover figcaption { color: #056767; }
 }
 .text-justify{
     text-align: justify !important;
+}
+.form-check-input:checked {
+    background-color: #0CC;
+    border-color: #0CC;
+}
+.form-select, .dropdown-btn{
+    border-color: #0CC !important;
+    height: 45px;
 }
