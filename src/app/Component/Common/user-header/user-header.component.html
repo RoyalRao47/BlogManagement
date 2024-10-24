@@ -29,31 +29,31 @@
             Sign Up
           </a>
         </li>
-        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+        <li *ngIf="this.userType != '0'" class="tm-nav-item">
           <a routerLink="/blog-listing" class="tm-nav-link">
             <i class="fas fa-list"></i>
             Blog List
           </a>
         </li>
-        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+        <li *ngIf="this.userType != '0'" class="tm-nav-item">
           <a routerLink="/create-blog" class="tm-nav-link">
             <i class="fas fa-plus"></i>
             Create Blog
           </a>
         </li>
-        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+        <li *ngIf="this.userType != '0'" class="tm-nav-item">
           <a routerLink="/blog-category" class="tm-nav-link">
             <i class="fas fa-th-large"></i>
             Blog Category
           </a>
         </li>
-        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+        <li *ngIf="this.userType != '0'" class="tm-nav-item">
           <a routerLink="/blog-tag" class="tm-nav-link">
             <i class="fas fa-th"></i>
             Blog Tags
           </a>
         </li>
-        <li *ngIf="this.userType == '1'" class="tm-nav-item">
+        <li *ngIf="this.userType != '0'" class="tm-nav-item">
           <a href="#" (click)="onSignOut(this.userType)" class="tm-nav-link">
             <i class="fas fa-sign-out"></i>
            Sign Out

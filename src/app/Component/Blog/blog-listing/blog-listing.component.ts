@@ -14,18 +14,19 @@ import { Router, Routes } from '@angular/router';
 })
 export class BlogListingComponent  implements OnInit {
   blogList: any;
-
+  currentUserId = sessionStorage.getItem('currentUserId');
   constructor(private fb: FormBuilder, private blogCategoryService: BlogCategoryService, private blogTagService: BlogTagService,
     private createBlogService: CreateBlogService,  private router: Router) {
       this.blogList = []
   }
   
   ngOnInit() {
-    this. getAllBlog()
+    this.currentUserId = sessionStorage.getItem('currentUserId');
+    this.GetAllBlogByUserId(this.currentUserId)
   }
   
-  getAllBlog() {
-    this.createBlogService.GetAllBlog().subscribe(data => {
+  GetAllBlogByUserId(value: any) {
+    this.createBlogService.GetAllBlogByUserId(value).subscribe(data => {
       this.blogList = JSON.parse(JSON.stringify(data) ?? "");
     });
   }
@@ -39,7 +40,7 @@ export class BlogListingComponent  implements OnInit {
   
   ChangeStatus(value: any) {
     this.createBlogService.ChangeStatus(value).subscribe(data => {
-      this.getAllBlog();
+      this.GetAllBlogByUserId(this.currentUserId)
     });
   }
   getStatus(isActive: string): string {

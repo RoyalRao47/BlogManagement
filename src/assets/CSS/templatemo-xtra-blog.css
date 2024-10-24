@@ -356,7 +356,7 @@ textarea.form-control {
     min-height: calc(1.5em + .75rem + calc(var(--bs-border-width)* 2));
     height: auto;
 }
-.tm-comment-form { max-width: 360px; }
+.tm-comment-form { max-width: 100%; }
 .tm-category-list { list-style-type: none; }
 figure { margin: 0; }
 figcaption { line-height: 1.4; }

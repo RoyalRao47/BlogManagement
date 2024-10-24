@@ -74,7 +74,7 @@ export class CreateUserComponent implements OnInit {
     })
     this.userSubmitted = false;
     this.userForm.reset();
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
   onReset(): void {

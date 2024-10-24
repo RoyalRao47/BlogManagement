@@ -4,6 +4,7 @@
     overflow: auto;
     text-overflow :initial;
     white-space: unset;
+    width: 100%;
 }
 .effect-lily img {
     max-width: none;

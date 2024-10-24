@@ -41,6 +41,15 @@ export class CreateBlogService {
     );
   }
 
+  GetAllBlogByUserId(userId: bigint): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetAllBlogByUserId?UserId=${userId}`, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(new Date() + ": GetAllBlogByUserId  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
+
   GetActiveBlog(): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetActiveBlog`, this.httpOptions).pipe(
       tap((response: any) => {
@@ -77,6 +86,23 @@ export class CreateBlogService {
     );
   }
 
+  SaveBlogComment(model: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/SaveBlogComment`, model, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(new Date() + ": SaveBlogComment  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Post'))
+    );
+  }
+  
+  GetBlogCommentById(blogId: bigint): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetBlogCommentById?BlogId=${blogId}`, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(new Date() + ": GetBlogCommentById  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
   // SubmitBlog(formData: FormData): Observable<any> {
   //   formData.forEach((value, key) => {
   //     console.log("service  " + key + ' : ' + value);
