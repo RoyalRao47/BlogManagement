@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\Content\\Blog\\1705466307452_103042.JPEG"
     },
     {
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1723544621298.JPEG",
+      "PackagePath": "staticwebassets\\Content\\Blog\\1723544621298.JPEG"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlogMgmtServer.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

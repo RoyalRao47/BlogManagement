@@ -44,5 +44,7 @@ namespace BlogMgmtServer.Model
 
         public string? IsNew { get; set; }
 
+        public int? CommentCount { get; set; }
+
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using BlogMgmtServer.DbTable;
 using BlogMgmtServer.Service;
 using BlogMgmtServer.Model;
+using BlogMgmtServer.Migrations;
 
 namespace BlogMgmtServer.Controllers
 {
@@ -45,6 +46,12 @@ namespace BlogMgmtServer.Controllers
             return _BlogService.GetBlogList();
         }
 
+        [HttpGet("GetAllBlogByUserId")]
+        public ActionResult<IEnumerable<BlogModel>> GetAllBlogByUserId(int UserId)
+        {
+            return _BlogService.GetAllBlogByUserId(UserId);
+        }
+
         [HttpGet("GetActiveBlog")]
         public ActionResult<IEnumerable<BlogModel>> GetActiveBlog()
         {
@@ -69,6 +76,26 @@ namespace BlogMgmtServer.Controllers
         public ActionResult<BlogModel> GetBlogDetailById(int BlogId)
         {
             return _BlogService.GetBlogDetailById(BlogId);
+        }
+
+        [HttpPost("SaveBlogComment")]
+        public IActionResult SaveBlogComment([FromBody] BlogComment blogComment)
+        {
+            try
+            {
+                _BlogService.SaveBlogComment(blogComment);
+                return Ok(new { status = true, message = "Blog Comment Saved Successfully" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetBlogCommentById")]
+        public ActionResult<IEnumerable<BlogCommentModel>> GetBlogCommentById(int BlogId)
+        {
+            return _BlogService.GetBlogCommentById(BlogId);
         }
 
     }

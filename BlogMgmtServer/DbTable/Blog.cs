@@ -23,6 +23,8 @@ namespace BlogMgmtServer.DbTable
         public bool? IsActive { get; set; }
 
         public int CreatedBy { get; set; }
+
+        public int? UserId { get; set; }
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? ModifiedDate { get; set; }

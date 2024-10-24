@@ -19,6 +19,8 @@ namespace BlogMgmtServer.Database
         public DbSet<BlogCategory> BlogCategories { get; set; }
         public DbSet<BlogTag> BlogTags { get; set; }
 
+        public DbSet<BlogComment> BlogComments { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -72,6 +74,21 @@ namespace BlogMgmtServer.Database
 
             modelBuilder.Entity<BlogTag>()
                 .HasKey(pt => new { pt.BlogId, pt.TagId });
+
+            modelBuilder.Entity<BlogComment>(entity =>
+                        {
+                            entity.ToTable("BlogComment");
+                            entity.HasKey(e => e.CommentID)
+                                  .HasName("PK_BlogComment")
+                                  .IsClustered(false);
+                            entity.Property(e => e.CommentID)
+                                  .ValueGeneratedOnAdd(); // Identity column configuration
+                        });
+
+            modelBuilder.Entity<BlogComment>()
+       .HasOne(c => c.ParentComment)
+       .WithMany(c => c.Replies)
+       .HasForeignKey(c => c.ParentCommentID);
 
         }
 

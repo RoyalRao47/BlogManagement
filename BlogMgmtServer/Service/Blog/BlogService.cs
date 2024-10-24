@@ -4,6 +4,7 @@ using BlogMgmtServer.Model;
 using BlogMgmtServer.DbTable;
 using System;
 using Microsoft.AspNetCore.Hosting;
+using BlogMgmtServer.Migrations;
 
 namespace BlogMgmtServer.Service
 {
@@ -21,6 +22,28 @@ namespace BlogMgmtServer.Service
         public List<BlogModel> GetBlogList()
         {
             var bloglist = _context.Blogs.Include(c => c.BlogCategories).ThenInclude(bc => bc.Categories).Include(t => t.BlogTags).ThenInclude(bc => bc.Tags).ToList();
+            List<BlogModel> blogDtoList = new List<BlogModel>();
+            foreach (var blog in bloglist)
+            {
+                BlogModel _blog = new BlogModel();
+                _blog.BlogId = blog.BlogId;
+                _blog.Title = blog.Title;
+                _blog.IntroText = blog.IntroText;
+                _blog.BlogContent = blog.BlogContent;
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.Status = blog.Status == "1" ? "Published" : blog.Status == "2" ? "Draft" : blog.Status == "3" ? "Archived" : "";
+                _blog.Featured = blog?.IsFeature == true ? "Yes" : "No"; ;
+                _blog.Active = blog?.IsActive == true ? "Yes" : "No";
+                _blog.CategoryName = blog.BlogCategories.FirstOrDefault().Categories.CategoryName ?? "";
+                _blog.TagName = blog.BlogTags.Select(x => x.Tags.TagName).ToArray();
+                blogDtoList.Add(_blog);
+            }
+            return blogDtoList;
+        }
+
+        public List<BlogModel> GetAllBlogByUserId(int UserId)
+        {
+            var bloglist = _context.Blogs.Include(c => c.BlogCategories).ThenInclude(bc => bc.Categories).Include(t => t.BlogTags).ThenInclude(bc => bc.Tags).Where(b => b.CreatedBy == UserId).ToList();
             List<BlogModel> blogDtoList = new List<BlogModel>();
             foreach (var blog in bloglist)
             {
@@ -184,6 +207,7 @@ namespace BlogMgmtServer.Service
                 blog.IsActive = BlogDto.IsActive;
                 blog.CreatedDate = DateTime.Now;
                 blog.CreatedBy = BlogDto.CreatedBy ?? 0;
+                blog.UserId = BlogDto.CreatedBy ?? 0;
 
                 _context.Blogs.Add(blog);
                 _context.SaveChanges();
@@ -245,10 +269,11 @@ namespace BlogMgmtServer.Service
 
         public List<BlogModel> GetActiveBlogList()
         {
-            var bloglist = _context.Blogs.Include(u => u.User).Include(c => c.BlogCategories).ThenInclude(x=>x.Categories).Include(t => t.BlogTags).ThenInclude(x=>x.Tags).Where(x => x.IsActive == true).ToList();
+            var bloglist = _context.Blogs.Include(u => u.User).Include(c => c.BlogCategories).ThenInclude(x => x.Categories).Include(t => t.BlogTags).ThenInclude(x => x.Tags).Where(x => x.IsActive == true).ToList();
             List<BlogModel> blogDtoList = new List<BlogModel>();
             foreach (var blog in bloglist)
             {
+                 var blogComment = _context.BlogComments.Where(x=>x.PostID == blog.BlogId).ToList();
                 string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
                 BlogModel _blog = new BlogModel();
                 _blog.BlogId = blog.BlogId;
@@ -266,20 +291,23 @@ namespace BlogMgmtServer.Service
                 _blog.Active = blog?.IsActive ?? false == true ? "Active" : null;
                 _blog.CategoryName = blog?.BlogCategories?.FirstOrDefault()?.Categories?.CategoryName;
                 _blog.TagName = blog?.BlogTags?.Select(x => x.Tags.TagName).ToArray(); ;
-                _blog.CreatedDate = blog.ModifiedDate != null ? blog.ModifiedDate.ToString() : blog.CreatedDate.ToString();
+                _blog.CreatedDate = blog.ModifiedDate != null ? blog.ModifiedDate?.ToShortDateString() : blog.CreatedDate?.ToShortDateString();
                 _blog.CreatedByName = blog.User.FullName;
                 _blog.IsNew = (DateTime.Now.Date - (blog.CreatedDate?.Date ?? DateTime.Now)).TotalDays == 1 ? "New" : null;
+                _blog.CommentCount = blogComment.Count > 0 ? blogComment.Count() : 0;
                 blogDtoList.Add(_blog);
             }
-            return blogDtoList;
+            return blogDtoList.OrderByDescending(x => x.BlogId).ToList();
         }
 
         public BlogModel GetBlogDetailById(int blogId)
         {
             BlogModel _blog = new BlogModel();
-            var blog = _context.Blogs.Include(u => u.User).Include(c => c.BlogCategories).ThenInclude(x=>x.Categories).Include(t => t.BlogTags).ThenInclude(x=>x.Tags).FirstOrDefault(x => x.BlogId == blogId);
+            var blog = _context.Blogs.Include(u => u.User).Include(c => c.BlogCategories).ThenInclude(x => x.Categories)
+            .Include(t => t.BlogTags).ThenInclude(x => x.Tags).FirstOrDefault(x => x.BlogId == blogId);
             if (blog != null)
             {
+                var blogComment = _context.BlogComments.Where(x=>x.PostID == blog.BlogId).ToList();
                 string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
                 _blog.BlogId = blog.BlogId;
                 _blog.Title = blog.Title;
@@ -296,12 +324,53 @@ namespace BlogMgmtServer.Service
                 _blog.Active = blog?.IsActive ?? false == true ? "Active" : null;
                 _blog.CategoryName = blog?.BlogCategories?.FirstOrDefault()?.Categories?.CategoryName;
                 _blog.TagName = blog?.BlogTags?.Select(x => x.Tags.TagName).ToArray(); ;
-                _blog.CreatedDate = blog.ModifiedDate != null ? blog.ModifiedDate.ToString() : blog.CreatedDate.ToString();
+                _blog.CreatedDate = blog.ModifiedDate != null ? blog.ModifiedDate?.ToShortDateString() : blog.CreatedDate?.ToShortDateString();
                 _blog.CreatedByName = blog.User.FullName;
                 _blog.IsNew = (DateTime.Now.Date - (blog.CreatedDate?.Date ?? DateTime.Now)).TotalDays == 1 ? "New" : null;
+                _blog.CommentCount = blogComment.Count > 0 ? blogComment.Count() : 0;
             }
             return _blog;
         }
+
+        public void SaveBlogComment(BlogComment comment)
+        {
+
+            BlogComment blogComment = new BlogComment();
+            blogComment.PostID = comment.PostID;
+            blogComment.UserID = comment.UserID;
+            blogComment.ParentCommentID = comment.ParentCommentID;
+            blogComment.Status = comment.Status;
+            blogComment.Content = comment.Content;
+            blogComment.Status = comment.Status;
+            blogComment.CreatedAt = DateTime.Now;
+            blogComment.BlogId = comment.PostID;
+
+            _context.BlogComments.Add(blogComment);
+            _context.SaveChanges();
+        }
+
+        public List<BlogCommentModel> GetBlogCommentById(int BlogId)
+        {
+            List<BlogCommentModel> commentList = new List<BlogCommentModel>();
+            var blogComment = _context.BlogComments.Include(u => u.User).Include(c => c.Blog).Where(x => x.PostID == BlogId).ToList();
+            foreach(var com in blogComment)
+            {
+                BlogCommentModel comment = new BlogCommentModel();
+                comment.CommentID = com.CommentID;
+                comment.PostID = com.PostID;
+                comment.UserID = com.UserID ??0;
+                comment.ParentCommentID = com.ParentCommentID ?? 0;
+                comment.Content = com.Content;
+                comment.Status = com.Status;
+                comment.CreatedAt = com.CreatedAt?.ToShortDateString();
+                comment.UserName = com.User.FullName;
+                comment.BlogId = com.BlogId;
+                commentList.Add(comment);
+            }
+            return commentList;
+        }
+
+
 
         protected virtual void Dispose(bool disposing)
         {
