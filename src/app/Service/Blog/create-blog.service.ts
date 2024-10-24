@@ -44,7 +44,6 @@ export class CreateBlogService {
   GetAllBlogByUserId(userId: bigint): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetAllBlogByUserId?UserId=${userId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": GetAllBlogByUserId  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Get'))
     );
@@ -61,7 +60,6 @@ export class CreateBlogService {
   GetBlogById(blogId: bigint): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetBlogById?BlogId=${blogId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": GetBlogById  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Get'))
     );
@@ -71,7 +69,6 @@ export class CreateBlogService {
     console.log("ChangeStatus blogId " + blogId);
     return this.http.post<any>(`${this.apiUrl}/ChangeBlogStatus?BlogId=${blogId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(": ChangeStatus res " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Get'))
     );
@@ -80,7 +77,6 @@ export class CreateBlogService {
   GetBlogDetailById(blogId: bigint): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetBlogDetailById?BlogId=${blogId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": GetBlogDetailById  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Get'))
     );
@@ -89,7 +85,6 @@ export class CreateBlogService {
   SaveBlogComment(model: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/SaveBlogComment`, model, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": SaveBlogComment  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Post'))
     );
@@ -98,7 +93,14 @@ export class CreateBlogService {
   GetBlogCommentById(blogId: bigint): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetBlogCommentById?BlogId=${blogId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": GetBlogCommentById  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
+
+  GetRelatedBlog(blogId: bigint, categoryId : bigint): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetRelatedBlog?BlogId=${blogId}&CategoryId=${categoryId}`, this.httpOptions).pipe(
+      tap((response: any) => {
       }),
       catchError(this.handleError<any>('Get'))
     );
