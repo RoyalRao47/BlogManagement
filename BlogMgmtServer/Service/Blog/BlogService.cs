@@ -273,7 +273,7 @@ namespace BlogMgmtServer.Service
             List<BlogModel> blogDtoList = new List<BlogModel>();
             foreach (var blog in bloglist)
             {
-                 var blogComment = _context.BlogComments.Where(x=>x.PostID == blog.BlogId).ToList();
+                var blogComment = _context.BlogComments.Where(x => x.PostID == blog.BlogId).ToList();
                 string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
                 BlogModel _blog = new BlogModel();
                 _blog.BlogId = blog.BlogId;
@@ -307,7 +307,7 @@ namespace BlogMgmtServer.Service
             .Include(t => t.BlogTags).ThenInclude(x => x.Tags).FirstOrDefault(x => x.BlogId == blogId);
             if (blog != null)
             {
-                var blogComment = _context.BlogComments.Where(x=>x.PostID == blog.BlogId).ToList();
+                var blogComment = _context.BlogComments.Where(x => x.PostID == blog.BlogId).ToList();
                 string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
                 _blog.BlogId = blog.BlogId;
                 _blog.Title = blog.Title;
@@ -353,12 +353,12 @@ namespace BlogMgmtServer.Service
         {
             List<BlogCommentModel> commentList = new List<BlogCommentModel>();
             var blogComment = _context.BlogComments.Include(u => u.User).Include(c => c.Blog).Where(x => x.PostID == BlogId).ToList();
-            foreach(var com in blogComment)
+            foreach (var com in blogComment)
             {
                 BlogCommentModel comment = new BlogCommentModel();
                 comment.CommentID = com.CommentID;
                 comment.PostID = com.PostID;
-                comment.UserID = com.UserID ??0;
+                comment.UserID = com.UserID ?? 0;
                 comment.ParentCommentID = com.ParentCommentID ?? 0;
                 comment.Content = com.Content;
                 comment.Status = com.Status;
@@ -370,6 +370,25 @@ namespace BlogMgmtServer.Service
             return commentList;
         }
 
+        public List<BlogModel> GetRelatedBlogList(int blogId, int categoryId)
+        {
+            var bloglist = _context.Blogs.Include(c => c.BlogCategories).Where(x => x.BlogCategories.Any(x=>x.CategoryId == categoryId)).ToList();
+            List<BlogModel> blogDtoList = new List<BlogModel>();
+            bloglist = bloglist.Where(x=>x.BlogId != blogId).ToList();
+            foreach (var blog in bloglist)
+            {
+                var blogComment = _context.BlogComments.Where(x => x.PostID == blog.BlogId).ToList();
+                string imagePath = Path.Combine(_env.WebRootPath, $"{blog.BlogImage}");
+                BlogModel _blog = new BlogModel();
+                _blog.BlogId = blog.BlogId;
+                _blog.Title = blog.Title;
+                _blog.IntroText = blog.IntroText;
+                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.CommentCount = blogComment.Count > 0 ? blogComment.Count() : 0;
+                blogDtoList.Add(_blog);
+            }
+            return blogDtoList.OrderByDescending(x => x.BlogId).ToList();
+        }
 
 
         protected virtual void Dispose(bool disposing)

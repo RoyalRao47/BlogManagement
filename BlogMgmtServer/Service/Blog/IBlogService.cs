@@ -15,5 +15,6 @@ namespace BlogMgmtServer.Service
        List<BlogModel> GetAllBlogByUserId(int UserId);
        void SaveBlogComment(BlogComment comment);
        List<BlogCommentModel> GetBlogCommentById(int BlogId);
+       List<BlogModel> GetRelatedBlogList(int BlogId, int CategoryId);
     }
 }

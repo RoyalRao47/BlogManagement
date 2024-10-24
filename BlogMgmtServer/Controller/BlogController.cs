@@ -98,5 +98,11 @@ namespace BlogMgmtServer.Controllers
             return _BlogService.GetBlogCommentById(BlogId);
         }
 
+        [HttpGet("GetRelatedBlog")]
+        public ActionResult<IEnumerable<BlogModel>> GetRelatedBlog(int BlogId, int CategoryId)
+        {
+            return _BlogService.GetRelatedBlogList(BlogId, CategoryId);
+        }
+
     }
 }
