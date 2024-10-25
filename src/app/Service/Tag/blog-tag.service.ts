@@ -3,12 +3,13 @@ import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogTagService {
-  private apiUrl = 'http://localhost:5015/api';
+  private apiUrl = environment.baseUrl;;
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'timeout': `${600000}` })
