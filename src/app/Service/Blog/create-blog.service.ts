@@ -4,13 +4,14 @@ import { tap, catchError } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { DropDownItem } from '../../Model/DropdownItem';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CreateBlogService {
 
-  private apiUrl = 'http://localhost:5015/api';
+  private apiUrl = environment.baseUrl;
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'timeout': `${600000}` })

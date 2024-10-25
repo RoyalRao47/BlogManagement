@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.prod';
+
 
 
 @Injectable({
@@ -9,7 +11,7 @@ import { tap, catchError } from 'rxjs/operators';
 })
 export class CreateUserService {
 
-  private apiUrl = 'http://localhost:5015/api';
+  private apiUrl = environment.baseUrl;
 
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'timeout': `${600000}` })

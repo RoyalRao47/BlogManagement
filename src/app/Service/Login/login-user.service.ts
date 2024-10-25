@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginUserService {
 
-  private apiUrl = 'http://localhost:5015/api';
+  private apiUrl = environment.baseUrl;
   currentUserId = sessionStorage.getItem('currentUserId');
   token = sessionStorage.getItem('token');
 

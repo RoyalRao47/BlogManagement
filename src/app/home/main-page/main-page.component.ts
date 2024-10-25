@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CreateBlogService } from 'src/app/Service/Blog/create-blog.service';
 import { BlogCategoryService } from 'src/app/Service/Category/blog-category.service';
 import { BlogTagService } from 'src/app/Service/Tag/blog-tag.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-page',
@@ -19,7 +20,8 @@ export class MainPageComponent implements OnInit {
   }
   
   ngOnInit() {
-    this. getAllBlog()
+    this. getAllBlog();
+    console.log('Current Environment: ', environment.production ? 'Production' : 'Development');
   }
   
   getAllBlog() {
