@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-header',
@@ -17,6 +18,7 @@ export class UserHeaderComponent implements OnInit {
         this.userType = 0;
       }
       console.log('userType ' + this.userType);
+      console.log('Current Environment: ', environment.production ? 'Production' : 'Development');
     }
   }
   onSignOut(value: any) {

@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CreateBlogService {
 
+
   private apiUrl = environment.baseUrl;
 
   private httpOptions = {
@@ -27,6 +28,7 @@ export class CreateBlogService {
     ];
   }
 
+  
   SubmitBlog(formData: FormData): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/SaveBlog`, formData, {
       headers: new HttpHeaders({

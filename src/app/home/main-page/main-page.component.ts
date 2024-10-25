@@ -16,12 +16,13 @@ export class MainPageComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private blogCategoryService: BlogCategoryService, private blogTagService: BlogTagService,
     private createBlogService: CreateBlogService,  private router: Router) {
-      this.blogList = []
+      this.blogList = [];
+      console.log('Current Environment: ', environment.production ? 'Production' : 'Development');
   }
   
   ngOnInit() {
-    this. getAllBlog();
     console.log('Current Environment: ', environment.production ? 'Production' : 'Development');
+    this. getAllBlog();
   }
   
   getAllBlog() {
