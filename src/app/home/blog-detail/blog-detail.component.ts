@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateBlogService } from 'src/app/Service/Blog/create-blog.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-blog-detail',
@@ -9,6 +10,7 @@ import { CreateBlogService } from 'src/app/Service/Blog/create-blog.service';
   styleUrls: ['./blog-detail.component.css'],
 })
 export class BlogDetailComponent implements OnInit {
+  public imageUrl = environment.imageUrl;
   value: any;
   dataResponse: any;
   model: any = {};

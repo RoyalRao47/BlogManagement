@@ -4326,11 +4326,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
+      "projectUniqueName": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
       "projectName": "BlogMgmtServer",
-      "projectPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
+      "projectPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\obj\\",
+      "outputPath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

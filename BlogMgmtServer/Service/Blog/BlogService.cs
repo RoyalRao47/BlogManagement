@@ -30,7 +30,7 @@ namespace BlogMgmtServer.Service
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.BlogImage =  blog.BlogImage;
                 _blog.Status = blog.Status == "1" ? "Published" : blog.Status == "2" ? "Draft" : blog.Status == "3" ? "Archived" : "";
                 _blog.Featured = blog?.IsFeature == true ? "Yes" : "No"; ;
                 _blog.Active = blog?.IsActive == true ? "Yes" : "No";
@@ -52,7 +52,7 @@ namespace BlogMgmtServer.Service
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.BlogImage =  blog.BlogImage;
                 _blog.Status = blog.Status == "1" ? "Published" : blog.Status == "2" ? "Draft" : blog.Status == "3" ? "Archived" : "";
                 _blog.Featured = blog?.IsFeature == true ? "Yes" : "No"; ;
                 _blog.Active = blog?.IsActive == true ? "Yes" : "No";
@@ -75,7 +75,7 @@ namespace BlogMgmtServer.Service
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.BlogImage = blog.BlogImage;
                 _blog.Status = blog.Status;
                 _blog.IsFeature = blog.IsFeature;
                 _blog.IsActive = blog.IsActive;
@@ -280,7 +280,7 @@ namespace BlogMgmtServer.Service
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.BlogImage = blog.BlogImage;
                 _blog.Status = blog.Status;
                 _blog.IsFeature = blog.IsFeature;
                 _blog.IsActive = blog.IsActive;
@@ -313,7 +313,7 @@ namespace BlogMgmtServer.Service
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
                 _blog.BlogContent = blog.BlogContent;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.BlogImage = blog.BlogImage;
                 _blog.Status = blog.Status;
                 _blog.IsFeature = blog.IsFeature;
                 _blog.IsActive = blog.IsActive;
@@ -383,7 +383,7 @@ namespace BlogMgmtServer.Service
                 _blog.BlogId = blog.BlogId;
                 _blog.Title = blog.Title;
                 _blog.IntroText = blog.IntroText;
-                _blog.BlogImage = "http://localhost:5015" + blog.BlogImage;
+                _blog.BlogImage = blog.BlogImage;
                 _blog.CommentCount = blogComment.Count > 0 ? blogComment.Count() : 0;
                 blogDtoList.Add(_blog);
             }

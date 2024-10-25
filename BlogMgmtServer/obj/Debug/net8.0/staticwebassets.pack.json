@@ -1,248 +1,40 @@
 {
   "Files": [
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\3rdpartylicenses.txt",
-      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\07OCT_blogscript.sql",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\07OCT_blogscript.sql",
       "PackagePath": "staticwebassets\\Content\\Blog\\07OCT_blogscript.sql"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1698034433422.JPEG",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1698034433422.JPEG",
       "PackagePath": "staticwebassets\\Content\\Blog\\1698034433422.JPEG"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1703257006756.JPEG",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1703257006756.JPEG",
       "PackagePath": "staticwebassets\\Content\\Blog\\1703257006756.JPEG"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1705466307452.JPEG",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1705466307452.JPEG",
       "PackagePath": "staticwebassets\\Content\\Blog\\1705466307452.JPEG"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1705466307452_103042.JPEG",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1705466307452_103042.JPEG",
       "PackagePath": "staticwebassets\\Content\\Blog\\1705466307452_103042.JPEG"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1723544621298.JPEG",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\1723544621298.JPEG",
       "PackagePath": "staticwebassets\\Content\\Blog\\1723544621298.JPEG"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\24OCT_BlogMgmt.sql",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\24OCT_BlogMgmt.sql",
       "PackagePath": "staticwebassets\\Content\\Blog\\24OCT_BlogMgmt.sql"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\OIG.50a3rPuRB5DaGvXUIR5R.jpg",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\OIG.50a3rPuRB5DaGvXUIR5R.jpg",
       "PackagePath": "staticwebassets\\Content\\Blog\\OIG.50a3rPuRB5DaGvXUIR5R.jpg"
     },
     {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\OIG.XDmNHzzJc2HmBQ8c3ufq.jpg",
+      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\OIG.XDmNHzzJc2HmBQ8c3ufq.jpg",
       "PackagePath": "staticwebassets\\Content\\Blog\\OIG.XDmNHzzJc2HmBQ8c3ufq.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\CSS\\bootstrap.min.css",
-      "PackagePath": "staticwebassets\\assets\\CSS\\bootstrap.min.css"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\CSS\\templatemo-xtra-blog.css",
-      "PackagePath": "staticwebassets\\assets\\CSS\\templatemo-xtra-blog.css"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\JS\\jquery.min.js",
-      "PackagePath": "staticwebassets\\assets\\JS\\jquery.min.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\JS\\templatemo-script.js",
-      "PackagePath": "staticwebassets\\assets\\JS\\templatemo-script.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\LICENSE.txt",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\LICENSE.txt"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\css\\all.min.css",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\css\\all.min.css"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-brands-400.eot",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-brands-400.eot"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-brands-400.svg",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-brands-400.svg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-brands-400.ttf",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-brands-400.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-brands-400.woff",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-brands-400.woff"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-brands-400.woff2",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-brands-400.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-regular-400.eot",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-regular-400.eot"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-regular-400.svg",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-regular-400.svg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-regular-400.ttf",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-regular-400.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-regular-400.woff",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-regular-400.woff"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-regular-400.woff2",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-regular-400.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-solid-900.eot",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-solid-900.eot"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-solid-900.svg",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-solid-900.svg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-solid-900.ttf",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-solid-900.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-solid-900.woff",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-solid-900.woff"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\fontawesome\\webfonts\\fa-solid-900.woff2",
-      "PackagePath": "staticwebassets\\assets\\fontawesome\\webfonts\\fa-solid-900.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\about-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\about-01.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\about-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\about-02.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\about-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\about-03.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\about-04.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\about-04.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\about-05.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\about-05.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\comment-1.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\comment-1.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\comment-2.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\comment-2.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\img-01.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\img-01.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\img-02.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\img-02.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\img-03.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\img-03.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\img-04.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\img-04.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\img-05.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\img-05.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\img\\img-06.jpg",
-      "PackagePath": "staticwebassets\\assets\\img\\img-06.jpg"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\assets\\video\\wheat-field.mp4",
-      "PackagePath": "staticwebassets\\assets\\video\\wheat-field.mp4"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-brands-400.1342812213307936.ttf",
-      "PackagePath": "staticwebassets\\fa-brands-400.1342812213307936.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-brands-400.60e5c9d38b143ff0.woff2",
-      "PackagePath": "staticwebassets\\fa-brands-400.60e5c9d38b143ff0.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-regular-400.6f7d0aec71887524.woff2",
-      "PackagePath": "staticwebassets\\fa-regular-400.6f7d0aec71887524.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-regular-400.d151c40a03a8a2ce.ttf",
-      "PackagePath": "staticwebassets\\fa-regular-400.d151c40a03a8a2ce.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-solid-900.bd6c2137b5c6cc45.ttf",
-      "PackagePath": "staticwebassets\\fa-solid-900.bd6c2137b5c6cc45.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-solid-900.cece584ee568dd5d.woff2",
-      "PackagePath": "staticwebassets\\fa-solid-900.cece584ee568dd5d.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-v4compatibility.9b501f80e05db435.ttf",
-      "PackagePath": "staticwebassets\\fa-v4compatibility.9b501f80e05db435.ttf"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\fa-v4compatibility.e43d16026daea060.woff2",
-      "PackagePath": "staticwebassets\\fa-v4compatibility.e43d16026daea060.woff2"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\index.html",
-      "PackagePath": "staticwebassets\\index.html"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\main.54657abf45b66bad.js",
-      "PackagePath": "staticwebassets\\main.54657abf45b66bad.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\main.5b49f38c627e54d9.js",
-      "PackagePath": "staticwebassets\\main.5b49f38c627e54d9.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\polyfills.df3e30aa6a6a3a78.js",
-      "PackagePath": "staticwebassets\\polyfills.df3e30aa6a6a3a78.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\runtime.37c5524ef8578873.js",
-      "PackagePath": "staticwebassets\\runtime.37c5524ef8578873.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\scripts.de6ce6e2974fc371.js",
-      "PackagePath": "staticwebassets\\scripts.de6ce6e2974fc371.js"
-    },
-    {
-      "Id": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\wwwroot\\styles.f339c7725d4c999e.css",
-      "PackagePath": "staticwebassets\\styles.f339c7725d4c999e.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BlogMgmtServer.Microsoft.AspNetCore.StaticWebAssets.props",

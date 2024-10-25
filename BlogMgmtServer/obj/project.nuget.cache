@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KZlOLs6jlGFuYN8Y7azfZ7NDaehH5ox5/qpMpB17hLC5PaiOrOsL0emeWvY9H/Ic2Nh/51KDot0RnutiJ2xpLQ==",
+  "dgSpecHash": "aJTA/Am6hY/OBka1jO+FsAAChmDoy1kLoktzNc1THcnwzpunauy63YRJGoXlYYcZEQhsFVIhkIt7AGDjadKJmw==",
   "success": true,
-  "projectFilePath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
+  "projectFilePath": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\BlogMgmtServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

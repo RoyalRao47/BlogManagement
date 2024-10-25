@@ -7,7 +7,7 @@
         <div class="effect-lily tm-post-link">
           <div class="tm-post-link-inner">
             <img
-              src="{{ dataResponse.blogImage }}"
+              src="{{imageUrl}}{{ dataResponse.blogImage }}"
               alt="Image"
               class="img-fluid"
             />
@@ -137,7 +137,7 @@
             <a (click)="onViewBlog(row.blogId)" class="d-block tm-mb-40">
               <figure>
                 <img
-                  src="{{row.blogImage}}"
+                  src="{{imageUrl}}{{row.blogImage}}"
                   alt="Image"
                   class="mb-3 img-fluid"
                 />

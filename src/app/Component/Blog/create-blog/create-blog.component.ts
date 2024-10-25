@@ -30,6 +30,7 @@ import {
   IDropdownSettings,
 } from 'ng-multiselect-dropdown';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-blog',
@@ -37,6 +38,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./create-blog.component.css'],
 })
 export class CreateBlogComponent implements OnInit {
+  public imageUrl = environment.imageUrl;
   value: any;
   blogForm: FormGroup = new FormGroup({
     blogId: new FormControl(''),

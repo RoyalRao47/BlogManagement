@@ -1,6 +1,7 @@
 export const environment = {
     production: true,
     baseUrl: "http://dev.raoblogs.com:2020/api",
+    imageUrl : "http://dev.raoblogs.com:2020",
     saveBlog: 'api/SaveBlog',
     getAllBlog: 'api/GetAllBlog',
     getAllBlogByUserId: 'api/GetAllBlogByUserId',

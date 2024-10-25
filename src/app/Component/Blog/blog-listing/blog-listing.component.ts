@@ -6,6 +6,7 @@ import { BlogTagService } from '../../../Service/Tag/blog-tag.service';
 import { CreateBlogService } from '../../../Service/Blog/create-blog.service';
 import { NgbCalendar, NgbDateAdapter, NgbDateParserFormatter, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { Router, Routes } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-blog-listing',
@@ -13,6 +14,7 @@ import { Router, Routes } from '@angular/router';
   styleUrls: ['./blog-listing.component.css']
 })
 export class BlogListingComponent  implements OnInit {
+  public imageUrl = environment.imageUrl;
   blogList: any;
   currentUserId = sessionStorage.getItem('currentUserId');
   constructor(private fb: FormBuilder, private blogCategoryService: BlogCategoryService, private blogTagService: BlogTagService,

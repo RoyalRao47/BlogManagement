@@ -204,7 +204,7 @@
                                             <div class="col-md-6 text-end">
                                                 <div class="form-group">
                                                     <div *ngIf="blogForm.controls['blogImage'].value">
-                                                        <img [src]="blogForm.controls['blogImage'].value"
+                                                        <img [src]="imageUrl+blogForm.controls['blogImage'].value"
                                                             alt="Blog Image" style="width: 50%; height: 50%;" />
                                                     </div>
 

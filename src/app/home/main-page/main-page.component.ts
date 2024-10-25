@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class MainPageComponent implements OnInit {
   blogList: any;
-
+  public imageUrl = environment.imageUrl;
   constructor(private fb: FormBuilder, private blogCategoryService: BlogCategoryService, private blogTagService: BlogTagService,
     private createBlogService: CreateBlogService,  private router: Router) {
       this.blogList = [];
