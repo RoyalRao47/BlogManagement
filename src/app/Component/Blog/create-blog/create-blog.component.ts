@@ -269,8 +269,12 @@ export class CreateBlogComponent implements OnInit {
       
       return tags.includes(item.tagId);
     });
-    this.selectedTagList.push(selectedTags);
-    this.selectedTagList = this.selectedTagList.filter(item => Array.isArray(item) && item.length === 0 ? false : true);
+    this.selectedTagList = selectedTags.map(tag => ({
+      tagId: tag.tagId,
+      tagName: tag.tagName
+    }));
+    //this.selectedTagList = this.selectedTagList.filter(item => Array.isArray(item) && item.length === 0 ? false : true);
+    console.log('this.selectedTagList ' + JSON.stringify(this.selectedTagList));
     return selectedTags;
 
   }
