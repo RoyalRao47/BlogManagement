@@ -46,5 +46,7 @@ namespace BlogMgmtServer.Model
 
         public int? CommentCount { get; set; }
 
+        public int? TotalCount { get; set; }
+
     }
 }

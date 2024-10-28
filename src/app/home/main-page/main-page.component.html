@@ -4,13 +4,13 @@
         <!-- Search form -->
         <div class="row tm-row">
             <div class="col-12">
-                <form method="GET" class="form-inline tm-mb-80 tm-search-form">
-                    <input class="form-control tm-search-input" name="query" type="text" placeholder="Search..."
-                        aria-label="Search">
-                    <button class="tm-search-button" type="submit">
+                <div class="form-inline tm-mb-80 tm-search-form">
+                    <input class="form-control tm-search-input" type="text" [(ngModel)]="searchQuery"
+                        (keyup.enter)="onSearch()" (keydown.enter)="onSearch()" placeholder="Search...">
+                    <button (click)="onSearch()" class="tm-search-button">
                         <i class="fas fa-search tm-search-icon" aria-hidden="true"></i>
                     </button>
-                </form>
+                </div>
             </div>
         </div>
         <div class="row tm-row">
@@ -40,7 +40,7 @@
                     </div>
                 </article>
             </ng-template>
-            <article class="col-12 col-md-6 tm-post">
+            <article hidden class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
@@ -63,7 +63,7 @@
                     <span>by Admin Nat</span>
                 </div>
             </article>
-            <article class="col-12 col-md-6 tm-post">
+            <article hidden class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     <div class=" tm-post-link-inner">
@@ -87,7 +87,7 @@
                     <span>by Admin Sam</span>
                 </div>
             </article>
-            <article class="col-12 col-md-6 tm-post">
+            <article hidden class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
@@ -110,7 +110,7 @@
                     <span>by John Walker</span>
                 </div>
             </article>
-            <article class="col-12 col-md-6 tm-post">
+            <article hidden class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
@@ -134,7 +134,7 @@
                     <span>by Admin Sam</span>
                 </div>
             </article>
-            <article class="col-12 col-md-6 tm-post">
+            <article hidden class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
@@ -159,7 +159,7 @@
                     <span>by Admin Sam</span>
                 </div>
             </article>
-            <article class="col-12 col-md-6 tm-post">
+            <article hidden class="col-12 col-md-6 tm-post">
                 <hr class="tm-hr-primary">
                 <a href="post.html" class="effect-lily tm-post-link tm-pt-20">
                     <div class="tm-post-link-inner">
@@ -184,17 +184,23 @@
         </div>
         <div class="row tm-row tm-mt-100 tm-mb-75">
             <div class="tm-prev-next-wrapper">
-                <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next disabled tm-mr-20">Prev</a>
-                <a href="#" class="mb-2 tm-btn tm-btn-primary tm-prev-next">Next</a>
+                <button [ngClass]="{'disabled': currentPage === 1}"
+                    class="mb-2 tm-btn tm-btn-primary tm-prev-next tm-mr-20" (click)="onPageChange(currentPage - 1)"
+                    [disabled]="currentPage === 1">Previous</button>
+                <button [ngClass]="{'disabled': currentPage === totalPages}"
+                    class="mb-2 tm-btn tm-btn-primary tm-prev-next" (click)="onPageChange(currentPage + 1)"
+                    [disabled]="currentPage === totalPages">Next</button>
             </div>
             <div class="tm-paging-wrapper">
                 <span class="d-inline-block mr-3">Page</span>
                 <nav class="tm-paging-nav d-inline-block">
                     <ul>
-                        <li class="tm-paging-item active">
-                            <a href="#" class="mb-2 tm-btn tm-paging-link">1</a>
-                        </li>
-                        <li class="tm-paging-item">
+                        <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
+                            <li class="tm-paging-item" [class.active]="currentPage === i+1">
+                                <a  (click)="onPageNumber(i+1)" href="#" class="mb-2 tm-btn tm-paging-link">{{i+1}}</a>
+                            </li>
+                        </ng-container>
+                        <!-- <li class="tm-paging-item">
                             <a href="#" class="mb-2 tm-btn tm-paging-link">2</a>
                         </li>
                         <li class="tm-paging-item">
@@ -202,7 +208,7 @@
                         </li>
                         <li class="tm-paging-item">
                             <a href="#" class="mb-2 tm-btn tm-paging-link">4</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
             </div>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
@@ -107,6 +107,18 @@ export class CreateBlogService {
       }),
       catchError(this.handleError<any>('Get'))
     );
+  }
+
+  GetPagedBlogList(page: number, pageSize: number, searchQuery: string): Observable<HttpResponse<any>> {
+    let params = new HttpParams()
+      .set('PageNumber', page)
+      .set('PageSize', pageSize);
+    
+    if (searchQuery) {
+      params = params.set('SearchQuery', searchQuery);
+    }
+
+    return this.http.get<any>(`${this.apiUrl}/GetPagedBlogList`, { params, observe: 'response' });
   }
   // SubmitBlog(formData: FormData): Observable<any> {
   //   formData.forEach((value, key) => {

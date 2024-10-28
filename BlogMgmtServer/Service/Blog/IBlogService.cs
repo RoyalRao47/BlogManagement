@@ -16,5 +16,6 @@ namespace BlogMgmtServer.Service
        void SaveBlogComment(BlogComment comment);
        List<BlogCommentModel> GetBlogCommentById(int BlogId);
        List<BlogModel> GetRelatedBlogList(int BlogId, int CategoryId);
+       Task<List<BlogModel>> GetPagedBlogList(PaginationModel parameters);
     }
 }

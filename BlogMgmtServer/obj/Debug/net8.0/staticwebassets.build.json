@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5Zx2H9Z3OgdjG8SrvhpJsQRyphZQt6l4FFNxjYiqo+U=",
+  "Hash": "iTM+0KIdcp/7dLGGZJMCQz+7wd57me/8jkze5dqNuEI=",
   "Source": "BlogMgmtServer",
   "BasePath": "_content/BlogMgmtServer",
   "Mode": "Default",
@@ -150,6 +150,44 @@
       "OriginalItemSpec": "wwwroot\\Content\\Blog\\24OCT_BlogMgmt.sql"
     },
     {
+      "Identity": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\IMG_20220521_114209.jpg",
+      "SourceId": "BlogMgmtServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\",
+      "BasePath": "_content/BlogMgmtServer",
+      "RelativePath": "Content/Blog/IMG_20220521_114209.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\Blog\\IMG_20220521_114209.jpg"
+    },
+    {
+      "Identity": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\IMG_20220521_115436.jpg",
+      "SourceId": "BlogMgmtServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\",
+      "BasePath": "_content/BlogMgmtServer",
+      "RelativePath": "Content/Blog/IMG_20220521_115436.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\Blog\\IMG_20220521_115436.jpg"
+    },
+    {
       "Identity": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\OIG.50a3rPuRB5DaGvXUIR5R.jpg",
       "SourceId": "BlogMgmtServer",
       "SourceType": "Discovered",
@@ -186,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\Blog\\OIG.XDmNHzzJc2HmBQ8c3ufq.jpg"
+    },
+    {
+      "Identity": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\Content\\Blog\\Untitled-PhotoRoom.png-PhotoRoom.png",
+      "SourceId": "BlogMgmtServer",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\UpSkilingTask\\Angular\\BlogManagement\\BlogManagement\\BlogMgmtServer\\wwwroot\\",
+      "BasePath": "_content/BlogMgmtServer",
+      "RelativePath": "Content/Blog/Untitled-PhotoRoom.png-PhotoRoom.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\Blog\\Untitled-PhotoRoom.png-PhotoRoom.png"
     }
   ]
 }

@@ -31,6 +31,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
+                .WithExposedHeaders("X-Pagination")
                 );
     });
 builder.Services.Configure<JWTConfiguration>(builder.Configuration.GetSection("Jwt"));

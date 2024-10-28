@@ -4,6 +4,7 @@ using BlogMgmtServer.DbTable;
 using BlogMgmtServer.Service;
 using BlogMgmtServer.Model;
 using BlogMgmtServer.Migrations;
+using Newtonsoft.Json;
 
 namespace BlogMgmtServer.Controllers
 {
@@ -102,6 +103,23 @@ namespace BlogMgmtServer.Controllers
         public ActionResult<IEnumerable<BlogModel>> GetRelatedBlog(int BlogId, int CategoryId)
         {
             return _BlogService.GetRelatedBlogList(BlogId, CategoryId);
+        }
+
+        [HttpGet("GetPagedBlogList")]
+        public async Task<ActionResult<IEnumerable<BlogModel>>> GetPagedBlogList([FromQuery] PaginationModel parameters)
+        {
+            var items = await _BlogService.GetPagedBlogList(parameters);
+            int count = items.FirstOrDefault().TotalCount ?? 0;
+            var metadata = new
+            {
+                TotalCount = count,
+                PageSize = parameters.PageSize,
+                CurrentPage = parameters.PageNumber,
+                TotalPages = (int)Math.Ceiling(count / (double)parameters.PageSize)
+            };
+
+            Response.Headers.Append("X-Pagination", JsonConvert.SerializeObject(metadata));
+            return Ok(items);
         }
 
     }
