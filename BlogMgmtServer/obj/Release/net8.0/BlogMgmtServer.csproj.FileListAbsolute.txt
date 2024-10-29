@@ -287,3 +287,8 @@ D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Releas
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\appsettings.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\BlogMgmtServer.deps.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\BlogMgmtServer.runtimeconfig.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\publish\web.config
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\publish\appsettings.Development.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\publish\appsettings.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\publish\BlogMgmtServer.deps.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\bin\Release\net8.0\publish\publish\BlogMgmtServer.runtimeconfig.json

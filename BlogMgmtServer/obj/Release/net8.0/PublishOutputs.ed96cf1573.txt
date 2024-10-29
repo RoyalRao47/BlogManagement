@@ -1,4 +1,5 @@
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\BlogMgmtServer.exe
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\publish\web.config
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\web.config
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\appsettings.Development.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\appsettings.json
@@ -6,6 +7,10 @@ D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\pu
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\appsettings.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\BlogMgmtServer.deps.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\BlogMgmtServer.runtimeconfig.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\publish\appsettings.Development.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\publish\appsettings.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\publish\BlogMgmtServer.deps.json
+D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\publish\publish\BlogMgmtServer.runtimeconfig.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\BlogMgmtServer.dll
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\BlogMgmtServer.runtimeconfig.json
 D:\UpSkilingTask\Angular\BlogManagement\BlogManagement\BlogMgmtServer\publish\BlogMgmtServer.pdb

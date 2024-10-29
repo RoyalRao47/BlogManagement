@@ -33,13 +33,13 @@
                                                 [ngClass]="{ 'is-invalid': formSubmitted && f['title'].errors  }" />
                                             <div *ngIf="formSubmitted && f['title'].errors" class="invalid-feedback">
                                                 <div *ngIf="f['title'].errors['required']">
-                                                    Category Name is required
+                                                    Blog Title is required
                                                 </div>
                                                 <div *ngIf="f['title'].errors['source']">
-                                                    Category Name must be at least 1 characters
+                                                    Blog Title must be at least 1 characters
                                                 </div>
                                                 <div *ngIf="f['title'].errors['maxlength']">
-                                                    Category Name must not exceed 200 characters
+                                                    Blog Title must not exceed 200 characters
                                                 </div>
                                             </div>
                                         </div>
@@ -51,13 +51,13 @@
                                             <div *ngIf="formSubmitted && f['introText'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['introText'].errors['required']">
-                                                    Category Name is required
+                                                    Intro Text is required
                                                 </div>
                                                 <div *ngIf="f['introText'].errors['source']">
-                                                    Category Name must be at least 1 characters
+                                                    Intro Text must be at least 1 characters
                                                 </div>
                                                 <div *ngIf="f['introText'].errors['maxlength']">
-                                                    Category Name must not exceed 200 characters
+                                                    Intro Text must not exceed 200 characters
                                                 </div>
                                             </div>
                                         </div>
@@ -69,13 +69,13 @@
                                             <div *ngIf="formSubmitted && f['blogContent'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['blogContent'].errors['required']">
-                                                    Category Name is required
+                                                    Blog Content is required
                                                 </div>
                                                 <div *ngIf="f['blogContent'].errors['source']">
-                                                    Category Name must be at least 1 characters
+                                                    Blog Content must be at least 1 characters
                                                 </div>
                                                 <div *ngIf="f['blogContent'].errors['maxlength']">
-                                                    Category Name must not exceed 200 characters
+                                                    Blog Content must not exceed 200 characters
                                                 </div>
                                             </div>
                                         </div>
