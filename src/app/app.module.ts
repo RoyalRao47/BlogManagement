@@ -19,6 +19,8 @@ import { UserHeaderComponent } from './Component/Common/user-header/user-header.
 import { CreateBlogComponent } from './Component/Blog/create-blog/create-blog.component';
 import { MainPageComponent } from './home/main-page/main-page.component';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
+import { ContactUsComponent } from './home/contact-us/contact-us.component';
+import { AboutUsComponent } from './home/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
     UserHeaderComponent,
     CreateBlogComponent,
     MainPageComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    ContactUsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,FormsModule,

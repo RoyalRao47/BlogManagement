@@ -8,6 +8,8 @@ import { BlogTagComponent } from './Component/Blog/blog-tag/blog-tag.component';
 import { CreateBlogComponent } from './Component/Blog/create-blog/create-blog.component';
 import { MainPageComponent } from './home/main-page/main-page.component';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
+import { ContactUsComponent } from './home/contact-us/contact-us.component';
+import { AboutUsComponent } from './home/about-us/about-us.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path: 'blog-category', component: BlogCategoryComponent },  
   { path: 'blog-tag', component: BlogTagComponent },
   { path: 'create-blog', component: CreateBlogComponent },  
-  { path: 'create-blog/:value', component: CreateBlogComponent },  
+  { path: 'create-blog/:value', component: CreateBlogComponent },
+  { path: 'contact-us', component: ContactUsComponent },  
+  { path: 'about-us', component: AboutUsComponent },  
 
  
 ];

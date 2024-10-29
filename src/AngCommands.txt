@@ -1,0 +1,25 @@
+ng g c home/blog-detail
+
+ng g s Service/Tag/blog-tag
+
+dotnet ef migrations add InitialCreate --context DataContext
+dotnet ef database update --context DataContext
+
+New-Item -Path 'src\app\auth.interceptor.ts' -ItemType File
+
+dotnet ef migrations add blogComment  --context DataContext
+dotnet ef database update  --context DataContext
+
+ng generate environments
+
+git pull origin master
+
+git add .
+
+git commit -m "new commit"
+
+git push -u origin master
+
+cp -r ../BlogManagement/dist/blog-mgmt/* ./wwwroot
+
+dotnet publish -c Release -o ./publish
