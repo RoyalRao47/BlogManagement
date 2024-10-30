@@ -17,6 +17,7 @@ builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<ITagService, TagService>();
 builder.Services.AddTransient<IBlogService, BlogService>();
+builder.Services.AddTransient<IApiBlogService, ApiBlogService>();
 
 builder.Services.AddControllers();
 

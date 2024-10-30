@@ -1,0 +1,20 @@
+.tm-color-primary, span.tm-color-primary {
+    color: #099;
+    width: 1000px;
+}
+p, span {
+    color: #999;
+    width: 1000px;
+}
+.image-container {
+    width: 100%; /* Adjust as needed */
+     /* Set a fixed height if necessary */
+    overflow: hidden; /* Hide overflow if the image is larger */
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Options: contain, fill, or cover */
+  }
+  

@@ -21,6 +21,8 @@ import { MainPageComponent } from './home/main-page/main-page.component';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 import { ContactUsComponent } from './home/contact-us/contact-us.component';
 import { AboutUsComponent } from './home/about-us/about-us.component';
+import { ApiBlogComponent } from './home/api-blog/api-blog.component';
+import { ApiblogDetailComponent } from './home/apiblog-detail/apiblog-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AboutUsComponent } from './home/about-us/about-us.component';
     MainPageComponent,
     BlogDetailComponent,
     ContactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ApiBlogComponent,
+    ApiblogDetailComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,FormsModule,

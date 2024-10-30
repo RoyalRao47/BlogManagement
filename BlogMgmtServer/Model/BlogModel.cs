@@ -48,5 +48,7 @@ namespace BlogMgmtServer.Model
 
         public int? TotalCount { get; set; }
 
+        public string? TagNameNew { get; set; }
+
     }
 }

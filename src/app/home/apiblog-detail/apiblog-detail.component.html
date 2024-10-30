@@ -1,0 +1,51 @@
+<app-user-header></app-user-header>
+<div class="container-fluid">
+  <main class="tm-main">
+    <div class="row tm-row">
+      <div class="col-12">
+        <hr class="tm-hr-primary tm-mb-40" />
+        <div class="effect-lily tm-post-link">
+          <div class=" image-container">
+            <img
+              src="{{ dataResponse.blogImage }}"
+              alt="Image"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row tm-row">
+      <div class="col-lg-8 tm-post-col">
+        <div class="tm-post-full">
+          <div class="mb-4">
+            <h2 class="pt-2 tm-color-primary ">
+              {{ dataResponse.title }}
+            </h2>
+            <p class="tm-mb-40">
+              {{ dataResponse.createdDate }} posted by
+              {{ dataResponse.createdByName }}
+            </p>
+            <p [innerHTML]="dataResponse.blogContent">
+             
+            </p>
+            <span class="d-block text-right tm-color-primary">{{
+              dataResponse.tagName
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="row tm-row">
+      <div class="col-md-6 col-12 tm-color-gray">
+        Design:
+        <a rel="nofollow" target="_parent" href="#" class="tm-external-link"
+          >Rao Blogs</a
+        >
+      </div>
+      <div class="col-md-6 col-12 tm-color-gray tm-copyright">
+        Copyright 2020 Rao Blog Company Co. Ltd.
+      </div>
+    </footer>
+  </main>
+</div>

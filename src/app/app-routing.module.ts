@@ -10,6 +10,8 @@ import { MainPageComponent } from './home/main-page/main-page.component';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 import { ContactUsComponent } from './home/contact-us/contact-us.component';
 import { AboutUsComponent } from './home/about-us/about-us.component';
+import { ApiBlogComponent } from './home/api-blog/api-blog.component';
+import { ApiblogDetailComponent } from './home/apiblog-detail/apiblog-detail.component';
 
 
 const routes: Routes = [
@@ -23,8 +25,9 @@ const routes: Routes = [
   { path: 'create-blog', component: CreateBlogComponent },  
   { path: 'create-blog/:value', component: CreateBlogComponent },
   { path: 'contact-us', component: ContactUsComponent },  
-  { path: 'about-us', component: AboutUsComponent },  
-
+  { path: 'about-us', component: AboutUsComponent }, 
+  { path: 'api-blog', component: ApiBlogComponent },  
+  { path: 'api-blogdetail/:value', component: ApiblogDetailComponent },  
  
 ];
 
