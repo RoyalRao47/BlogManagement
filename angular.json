@@ -24,7 +24,8 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
               "src/styles.css",
-              "src/assets/CSS/templatemo-xtra-blog.css"
+              "src/assets/CSS/templatemo-xtra-blog.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/JS/jquery.min.js",
@@ -99,7 +100,8 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
               "src/styles.css",
-              "src/assets/CSS/templatemo-xtra-blog.css"
+              "src/assets/CSS/templatemo-xtra-blog.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "src/assets/JS/jquery.min.js",

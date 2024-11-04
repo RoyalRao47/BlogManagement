@@ -627,3 +627,11 @@ a:hover figcaption { color: #056767; }
     background-color: #f6f9fc;
     font-size: 14px !important;
   }
+
+  .tm-post-tag {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 320px;
+    white-space: nowrap;
+}

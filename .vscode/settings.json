@@ -4,6 +4,7 @@
         "blogdetail",
         "Hmac",
         "Indraprashtha",
-        "Mgmt"
+        "Mgmt",
+        "toastr"
     ]
 }
