@@ -21,6 +21,8 @@ namespace BlogMgmtServer.Database
 
         public DbSet<BlogComment> BlogComments { get; set; }
 
+        public DbSet<FavApiBlog> FavApiBlogs { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -89,6 +91,16 @@ namespace BlogMgmtServer.Database
        .HasOne(c => c.ParentComment)
        .WithMany(c => c.Replies)
        .HasForeignKey(c => c.ParentCommentID);
+
+        modelBuilder.Entity<FavApiBlog>(entity =>
+            {
+                entity.ToTable("FavApiBlog");
+                entity.HasKey(e => e.FavApiBlogId)
+                      .HasName("PK_FavApiBlog")
+                      .IsClustered(false);
+                entity.Property(e => e.FavApiBlogId)
+                      .ValueGeneratedOnAdd(); // Identity column configuration
+            });
 
         }
 

@@ -30,12 +30,28 @@ export class ApiBlogService {
   GetApiBlogById(BlogId: bigint): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/GetApiBlogById?BlogId=${BlogId}`, this.httpOptions).pipe(
       tap((response: any) => {
-        console.log(new Date() + ": GetApiBlogById  " + JSON.stringify(response));
       }),
       catchError(this.handleError<any>('Get'))
     );
   }
+
+  SaveFavApiBlog(model: any): Observable<any> {
+    console.log("SaveFavApiBlog " + JSON.stringify(model));
+    return this.http.post<any>(`${this.apiUrl}/SaveFavApiBlog`, model, this.httpOptions).pipe(
+      tap((response: any) => {
+        console.log(new Date() + ": SaveFavApiBlog  " + JSON.stringify(response));
+      }),
+      catchError(this.handleError<any>('Post'))
+    );
+  }
   
+  GetFavApiBlog(userId: any): Observable<any[]> {
+    return this.http.get<any>(`${this.apiUrl}/GetFavApiBlog?userId=${userId}`, this.httpOptions).pipe(
+      tap((response: any) => {
+      }),
+      catchError(this.handleError<any>('Get'))
+    );
+  }
   
   private log(message: string) {
     console.log(new Date() + ': ' + JSON.stringify(message));

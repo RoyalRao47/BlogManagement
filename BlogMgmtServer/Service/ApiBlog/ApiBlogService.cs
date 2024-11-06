@@ -15,13 +15,15 @@ namespace BlogMgmtServer.Service
     {
         private bool disposedValue = false;
         private readonly HttpClient _httpClient;
+        private readonly DataContext _context;
 
-        public ApiBlogService(HttpClient httpClient)
+        public ApiBlogService(HttpClient httpClient, DataContext context)
         {
             _httpClient = httpClient;
             _httpClient.BaseAddress = new Uri("https://dev.to/api/");
             _httpClient.DefaultRequestHeaders.Add("User-Agent", "RaoBlog/1.0");
             // _httpClient.DefaultRequestHeaders.Add("api-key", "zRdHqvKGq9yGyPM4nT7MVbhV");
+            _context = context;
         }
         public async Task<List<BlogModel>> GetApiBlog(string tag = "", int perPage = 10, int page = 1)
         {
@@ -68,6 +70,7 @@ namespace BlogMgmtServer.Service
                     _blog.IsNew = (DateTime.Now.Date - blog.created_at.Date).TotalDays < 2 ? "New" : null;
                     _blog.CommentCount = blog.public_reactions_count;
                     _blog.TotalCount = 30;
+                    _blog.BlogURL = blog.url;
                     blogDtoList.Add(_blog);
                 }
                 return blogDtoList.OrderByDescending(x => x.BlogId).ToList();
@@ -102,12 +105,60 @@ namespace BlogMgmtServer.Service
                 _blog.CreatedByName = blog.user.name;
                 _blog.IsNew = (DateTime.Now.Date - blog.created_at.Date).TotalDays < 2 ? "New" : null;
                 _blog.CommentCount = blog.public_reactions_count;
+                _blog.BlogURL = blog.url;
                 _blog.TotalCount = 30;
+                _blog.IsFavBlog = _context.FavApiBlogs.Any(x => x.BlogId == _blog.BlogId) ? 1 : 0;
 
             }
             return _blog;
         }
 
+        public async Task<List<BlogModel>> GetFavApiBlog(int userId)
+        {
+            var bloglist = _context.FavApiBlogs.Where(x => x.UserId == userId).ToList();
+            List<BlogModel> blogDtoList = new List<BlogModel>();
+            foreach (var apiblog in bloglist)
+            {
+                var url = $"articles/" + apiblog.BlogId;
+                var response = await _httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                var content = await response.Content.ReadAsStringAsync();
+                ApiBlogModel blog = Newtonsoft.Json.JsonConvert.DeserializeObject<ApiBlogModel>(content);
+                if (blog != null)
+                {
+                    BlogModel _blog = new BlogModel();
+                    _blog.BlogId = blog.id;
+                    _blog.Title = blog.title;
+                    _blog.IntroText = blog.description;
+                    _blog.BlogContent = blog.description;
+                    _blog.BlogImage = blog.cover_image != null ? blog.cover_image : blog.user.profile_image;
+
+                    _blog.Featured = "Featured";
+                    _blog.Active = "Active";
+                    _blog.CategoryName = null;
+                    _blog.TagName = blog.tag_list?.Select(x => x).ToArray();
+                    _blog.CreatedDate = blog.created_at.ToShortDateString();
+                    _blog.CreatedByName = blog.user.name;
+                    _blog.IsNew = (DateTime.Now.Date - blog.created_at.Date).TotalDays < 2 ? "New" : null;
+                    _blog.CommentCount = blog.public_reactions_count;
+                    _blog.TotalCount = 30;
+                    _blog.BlogURL = blog.url;
+                    blogDtoList.Add(_blog);
+                }
+
+            }
+            return blogDtoList.OrderByDescending(x => x.BlogId).ToList();
+        }
+
+        public void SaveFavApiBlog(FavApiBlog favApiBlog)
+        {
+            var Blog = _context.FavApiBlogs.FirstOrDefault(x => x.BlogId == favApiBlog.BlogId);
+            if (Blog == null)
+            {
+                _context.FavApiBlogs.Add(favApiBlog);
+                _context.SaveChanges();
+            }
+        }
 
         protected virtual void Dispose(bool disposing)
         {

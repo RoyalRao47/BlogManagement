@@ -12,6 +12,7 @@ import { ContactUsComponent } from './home/contact-us/contact-us.component';
 import { AboutUsComponent } from './home/about-us/about-us.component';
 import { ApiBlogComponent } from './home/api-blog/api-blog.component';
 import { ApiblogDetailComponent } from './home/apiblog-detail/apiblog-detail.component';
+import { FavApiComponent } from './home/fav-api/fav-api.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent }, 
   { path: 'api-blog', component: ApiBlogComponent },  
   { path: 'api-blogdetail/:value', component: ApiblogDetailComponent },  
+  { path: 'fav-api', component: FavApiComponent },  
  
 ];
 

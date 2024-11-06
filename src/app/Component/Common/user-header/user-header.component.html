@@ -19,7 +19,7 @@
         </li>
         <li class="tm-nav-item">
           <a routerLink="/api-blog" class="tm-nav-link">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-th"></i>
             Api Blog
           </a>
         </li>
@@ -33,6 +33,12 @@
           <a routerLink="/create-user" class="tm-nav-link">
             <i class="fas fa-user-plus"></i>
             Sign Up
+          </a>
+        </li>
+        <li *ngIf="this.userType != '0'" class="tm-nav-item">
+          <a routerLink="/fav-api" class="tm-nav-link">
+            <i class="fas fa-save"></i>
+            Fav Blog
           </a>
         </li>
         <li *ngIf="this.userType != '0'" class="tm-nav-item">

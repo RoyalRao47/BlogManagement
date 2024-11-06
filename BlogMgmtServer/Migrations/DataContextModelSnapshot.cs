@@ -182,6 +182,37 @@ namespace BlogMgmtServer.Migrations
                     b.ToTable("Category", (string)null);
                 });
 
+            modelBuilder.Entity("BlogMgmtServer.DbTable.FavApiBlog", b =>
+                {
+                    b.Property<int>("FavApiBlogId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FavApiBlogId"));
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsApiBlog")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("URL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FavApiBlogId")
+                        .HasName("PK_FavApiBlog");
+
+                    SqlServerKeyBuilderExtensions.IsClustered(b.HasKey("FavApiBlogId"), false);
+
+                    b.ToTable("FavApiBlog", (string)null);
+                });
+
             modelBuilder.Entity("BlogMgmtServer.DbTable.RegUser", b =>
                 {
                     b.Property<int>("UserId")

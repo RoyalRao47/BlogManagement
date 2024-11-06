@@ -22,10 +22,18 @@
             <h2 class="pt-2 tm-color-primary ">
               {{ dataResponse.title }}
             </h2>
-            <p class="tm-mb-40">
+            <p class="tm-mb-10">
               {{ dataResponse.createdDate }} posted by
               {{ dataResponse.createdByName }}
             </p>
+            <p *ngIf="dataResponse.isFavBlog == 0 && this.currentUserId != null" class="tm-mb-20">
+            <a style="color: tomato;" (click)="SaveFav(dataResponse.blogId)" class="tm-color-primary tm-post-link"
+            > <i class="fas fa-save"></i> Save as Favorite 
+          </a> </p>
+          <p *ngIf="dataResponse.isFavBlog == 1 && this.currentUserId != null" class="tm-mb-20">
+            <a style="color: green;" class="tm-color-primary"
+            > <i class="fas fa-save"></i> Saved as Favorite 
+          </a> </p>
             <p [innerHTML]="dataResponse.blogContent">
              
             </p>

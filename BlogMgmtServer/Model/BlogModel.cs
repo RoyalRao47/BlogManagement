@@ -50,5 +50,9 @@ namespace BlogMgmtServer.Model
 
         public string? TagNameNew { get; set; }
 
+        public string? BlogURL { get; set; }
+
+        public int? IsFavBlog { get; set; }
+
     }
 }

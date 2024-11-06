@@ -23,6 +23,7 @@ import { ContactUsComponent } from './home/contact-us/contact-us.component';
 import { AboutUsComponent } from './home/about-us/about-us.component';
 import { ApiBlogComponent } from './home/api-blog/api-blog.component';
 import { ApiblogDetailComponent } from './home/apiblog-detail/apiblog-detail.component';
+import { FavApiComponent } from './home/fav-api/fav-api.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ApiblogDetailComponent } from './home/apiblog-detail/apiblog-detail.com
     ContactUsComponent,
     AboutUsComponent,
     ApiBlogComponent,
-    ApiblogDetailComponent
+    ApiblogDetailComponent,
+    FavApiComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,FormsModule,

@@ -29,8 +29,30 @@ namespace BlogMgmtServer.Controllers
         [HttpGet("GetApiBlogById")]
         public async Task<ActionResult<BlogModel>> GetApiBlogById(int BlogId)
         {
-             var articles = await _apiBlogService.GetApiBlogById(BlogId);
-            return Ok(articles);         }
+            var articles = await _apiBlogService.GetApiBlogById(BlogId);
+            return Ok(articles);
+        }
+
+        [HttpPost("SaveFavApiBlog")]
+        public IActionResult SaveFavApiBlog([FromBody] FavApiBlog favApiBlog)
+        {
+            try
+            {
+                _apiBlogService.SaveFavApiBlog(favApiBlog);
+                return Ok(new { status = true, message = "Fav Blog Saved Successfully" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetFavApiBlog")]
+        public async Task<ActionResult<List<BlogModel>>> GetFavApiBlog(int userId)
+        {
+           var articles =  await _apiBlogService.GetFavApiBlog(userId);
+           return Ok(articles);
+        }
 
     }
 }
