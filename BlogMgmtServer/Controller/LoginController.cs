@@ -41,7 +41,7 @@ namespace BlogMgmtServer.Controllers
                 return Ok(new { status = true , userId = user.UserId, Token = tokenString });
             }
 
-            return Ok(new { status = false, message = "Chala Ja B..K" });
+            return Ok(new { status = false, message = "Invalid Login Creds" });
         }
 
         private string GenerateJWTToken(RegUser user)
